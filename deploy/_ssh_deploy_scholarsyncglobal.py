@@ -60,6 +60,7 @@ def upload_tree(sftp: paramiko.SFTPClient) -> int:
         remote_dir = posixpath.join(REMOTE_ROOT, local_dir.relative_to(ROOT).as_posix())
         ensure_dir(sftp, remote_dir)
         for filename in filenames:
+            local_path = local_dir / filename
             relative = local_path.relative_to(ROOT)
             if (
                 filename in SKIP_FILES
@@ -68,7 +69,6 @@ def upload_tree(sftp: paramiko.SFTPClient) -> int:
                 or (filename.endswith(".pdf") and "PHPMailer" not in relative.parts)
             ):
                 continue
-            local_path = local_dir / filename
             remote_path = posixpath.join(remote_dir, filename)
             sftp.put(str(local_path), remote_path)
             sftp.chmod(remote_path, stat.S_IRUSR | stat.S_IWUSR | stat.S_IRGRP | stat.S_IROTH)
