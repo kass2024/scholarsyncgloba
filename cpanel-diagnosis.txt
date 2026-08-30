@@ -1,0 +1,65 @@
+cPanel Issue Diagnosis Report
+============================
+
+PROBLEM:
+Contract submission works on localhost but fails on cPanel with "Submission failed" error
+
+IDENTIFIED ISSUES:
+1. Database Connection - Using hardcoded cPanel host (premium120.web-hosting.com)
+2. File Path Issues - Possible absolute path problems on cPanel
+3. PHP Extensions - Missing required extensions on cPanel server
+4. Memory Limits - PHP memory limits affecting large PDF generation
+5. Timeout Issues - Script execution timeouts on cPanel
+6. Permission Issues - File/directory permission problems
+
+RECOMMENDED SOLUTIONS:
+1. Test Database Connection - Verify cPanel database connectivity
+2. Check Error Logs - Review cPanel error logs for specific issues
+3. Verify PHP Extensions - Ensure GD, DOMPDF, and required extensions are installed
+4. Increase Memory - Set memory_limit to 512M or higher in cPanel
+5. Check File Paths - Use absolute paths for cPanel environment
+6. Verify Permissions - Ensure proper file/directory permissions
+7. Test Individual Components - Isolate and test each part of the process
+
+CODE FIXES FOR submit-partner-signature.php:
+
+Add these lines at the top after require_once statements:
+ini_set('display_errors', 1);
+ini_set('log_errors', 1);
+error_reporting(E_ALL);
+
+Add error handling improvements:
+try {
+    // Your existing submission code
+} catch (mysqli_sql_exception $e) {
+    $conn->rollback();
+    fail("Database error: " . $e->getMessage(), 500);
+} catch (Exception $e) {
+    $conn->rollback();
+    fail("System error: " . $e->getMessage(), 500);
+}
+
+Add memory and time limit increases:
+ini_set('memory_limit', '512M');
+set_time_limit(300); // 5 minutes
+
+QUICK TEST STEPS:
+1. Upload simple-cpanel-test.php to cPanel
+2. Access via browser: yourdomain.com/simple-cpanel-test.php
+3. Check results: Review database connection and file writing tests
+4. If tests pass: The issue is likely in submission process logic
+5. If tests fail: The issue is cPanel configuration/permissions
+
+NEXT STEPS:
+If database connection works but submission still fails:
+- Different database credentials on cPanel vs localhost
+- Missing PHP extensions on cPanel server
+- File permission issues in admin/ or generated/ directories
+- Script execution timeout during PDF generation
+
+COMMON CPANEL DIFFERENCES:
+- Lower PHP memory limits
+- Different PHP versions/extensions
+- Stricter file permissions
+- Different server configurations
+- Different absolute file paths

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Academic Transcript Processing</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+}
+
+.container {
+  width: 620px;
+  margin: 70px auto;
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+h2, h3 {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.step {
+  margin-bottom: 30px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.field {
+  margin-bottom: 18px;
+}
+
+.gender-group {
+  display: flex;
+  gap: 25px;
+}
+
+.gender-group label {
+  font-weight: normal;
+}
+
+button {
+  padding: 11px 24px;
+  background: #427431;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+button.secondary {
+  background: #2e7d32;
+}
+
+button:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+
+.hidden { display: none; }
+
+#loading {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.progress-track {
+  width: 100%;
+  height: 10px;
+  background: #e8ecef;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #427431, #5a9a47);
+  border-radius: 999px;
+  transition: width 0.6s ease;
+}
+
+#progressStatus {
+  font-weight: bold;
+  color: #333;
+  margin: 0 0 6px;
+}
+
+#progressHint {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+}
+
+.info {
+  background: #f9fafb;
+  padding: 18px;
+  border-radius: 6px;
+}
+
+.info p {
+  margin: 8px 0;
+}
+
+.error {
+  color: #b00020;
+  margin-top: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.downloads {
+  margin-top: 15px;
+}
+
+.downloads a {
+  display: block;
+  margin: 8px 0;
+  color: #427431;
+  text-decoration: none;
+  font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h2>Academic Transcript Processing</h2>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <h3>Step 1: Extract Transcript</h3>
+
+    <form id="transcriptForm" enctype="multipart/form-data">
+
+      <div class="field">
+        <label>Gender *</label>
+        <div class="gender-group">
+          <label><input type="radio" name="gender" value="male" required> Male</label>
+          <label><input type="radio" name="gender" value="female" required> Female</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Transcript (PDF / Image)</label>
+        <input type="file" name="transcript" required>
+      </div>
+
+      <div class="actions">
+        <button type="submit" id="extractBtn">Extract Transcript</button>
+      </div>
+
+    </form>
+  </div>
+
+  <div id="loading" class="hidden">
+    <div class="progress-track">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <p id="progressStatus">Uploading transcript…</p>
+    <p id="progressHint">This may take up to a minute for scanned PDFs.</p>
+  </div>
+
+  <!-- STEP 2 -->
+  <div id="result" class="hidden">
+    <h3>Step 2: Review & Generate Letters</h3>
+
+    <div class="info">
+      <p><strong>Name:</strong> <span id="name"></span></p>
+      <p><strong>Surname:</strong> <span id="surname"></span></p>
+      <p><strong>Registration #:</strong> <span id="reg"></span></p>
+      <p><strong>Program:</strong> <span id="program"></span></p>
+      <p><strong>Academic Year:</strong> <span id="year"></span></p>
+      <p><strong>Class:</strong> <span id="class"></span></p>
+      <p><strong>Date of Birth:</strong> <span id="dob"></span></p>
+      <p><strong>Gender:</strong> <span id="gender"></span></p>
+    </div>
+
+    <div class="actions">
+      <button type="button" class="secondary" id="generateBtn" disabled>
+        Generate Recommendation Letters
+      </button>
+    </div>
+
+    <div id="downloads" class="downloads hidden"></div>
+  </div>
+
+  <div id="error" class="error hidden"></div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  let extractedData = null;
+  let selectedGender = null;
+  let pdfJsReady = false;
+
+  const form = document.getElementById('transcriptForm');
+  const extractBtn = document.getElementById('extractBtn');
+  const generateBtn = document.getElementById('generateBtn');
+  const loading = document.getElementById('loading');
+  const progressBar = document.getElementById('progressBar');
+  const progressStatus = document.getElementById('progressStatus');
+  const progressHint = document.getElementById('progressHint');
+  const result = document.getElementById('result');
+  const error = document.getElementById('error');
+  const downloads = document.getElementById('downloads');
+
+  const EXTRACT_TIMEOUT_MS = 120000;
+
+  function setProgress(pct, status, hint) {
+    progressBar.style.width = pct + '%';
+    progressStatus.textContent = status;
+    if (hint) {
+      progressHint.textContent = hint;
+    }
+  }
+
+  async function ensurePdfJs() {
+    if (pdfJsReady) {
+      return;
+    }
+    if (!window.pdfjsLib) {
+      throw new Error('PDF library failed to load. Check your internet connection.');
+    }
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+      'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js';
+    pdfJsReady = true;
+  }
+
+  async function pdfFirstPageToPng(file) {
+    await ensurePdfJs();
+    const data = new Uint8Array(await file.arrayBuffer());
+    const doc = await pdfjsLib.getDocument({ data }).promise;
+    const page = await doc.getPage(1);
+    const viewport = page.getViewport({ scale: 2.5 });
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = viewport.width;
+    canvas.height = viewport.height;
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    await page.render({ canvasContext: ctx, viewport }).promise;
+
+    const blob = await new Promise((resolve, reject) => {
+      canvas.toBlob(b => (b ? resolve(b) : reject(new Error('Could not render PDF page'))), 'image/png', 0.92);
+    });
+
+    return new File([blob], 'transcript-page1.png', { type: 'image/png' });
+  }
+
+  async function prepareUploadFile(file) {
+    const ext = (file.name.split('.').pop() || '').toLowerCase();
+    if (ext === 'pdf') {
+      setProgress(15, 'Converting PDF first page to image…', 'This runs in your browser — no Ghostscript needed.');
+      return pdfFirstPageToPng(file);
+    }
+    return file;
+  }
+
+  /* =====================
+     EXTRACT
+  ===================== */
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    extractBtn.disabled = true;
+    generateBtn.disabled = true;
+    loading.classList.remove('hidden');
+    result.classList.add('hidden');
+    error.classList.add('hidden');
+    setProgress(5, 'Starting…', 'This usually takes 15–45 seconds.');
+
+    const formData = new FormData(form);
+    selectedGender = formData.get('gender');
+    const originalFile = formData.get('transcript');
+    const controller = new AbortController();
+    const timeoutId = window.setTimeout(() => controller.abort(), EXTRACT_TIMEOUT_MS);
+
+    try {
+      const uploadFile = await prepareUploadFile(originalFile);
+      formData.set('transcript', uploadFile, uploadFile.name);
+
+      setProgress(35, 'Uploading and analyzing with OpenAI…', 'Reading transcript header from the first page.');
+
+      const res = await fetch('../extract/extract_transcript.php', {
+        method: 'POST',
+        body: formData,
+        signal: controller.signal
+      });
+
+      setProgress(85, 'Extracting student details…', 'Almost done.');
+
+      const text = await res.text();
+      let json;
+
+      try {
+        json = JSON.parse(text);
+      } catch {
+        setProgress(0, 'Failed', '');
+        error.textContent = 'Invalid response from extraction service';
+        error.classList.remove('hidden');
+        extractBtn.disabled = false;
+        loading.classList.add('hidden');
+        return;
+      }
+
+      setProgress(json.status === 'success' ? 100 : 0, json.status === 'success' ? 'Done!' : 'Failed', '');
+      extractBtn.disabled = false;
+      loading.classList.add('hidden');
+
+      if (json.status !== 'success') {
+        error.textContent = json.message || 'Extraction failed';
+        error.classList.remove('hidden');
+        return;
+      }
+
+      extractedData = json.data;
+
+      document.getElementById('name').textContent = extractedData.name || '';
+      document.getElementById('surname').textContent = extractedData.surname || '';
+      document.getElementById('reg').textContent = extractedData.registration_number || '';
+      document.getElementById('program').textContent = extractedData.program || '';
+      document.getElementById('year').textContent = extractedData.academic_year_start || '';
+      document.getElementById('class').textContent = extractedData.class || '';
+      document.getElementById('dob').textContent = extractedData.date_of_birth || '';
+      document.getElementById('gender').textContent =
+        selectedGender === 'male' ? 'Male' : 'Female';
+
+      result.classList.remove('hidden');
+      generateBtn.disabled = false;
+
+    } catch (err) {
+      setProgress(0, 'Failed', '');
+      extractBtn.disabled = false;
+      loading.classList.add('hidden');
+      console.error(err);
+      if (err && err.name === 'AbortError') {
+        error.textContent = 'Extraction timed out after 2 minutes. Try again with a smaller PDF or a JPG/PNG photo of the first page.';
+      } else {
+        error.textContent = err && err.message ? err.message : 'Server error during extraction.';
+      }
+      error.classList.remove('hidden');
+    } finally {
+      clearTimeout(timeoutId);
+    }
+  });
+
+  /* =====================
+     GENERATE
+  ===================== */
+  generateBtn.addEventListener('click', async () => {
+
+    if (!extractedData || !selectedGender) {
+      alert('Please extract transcript first.');
+      return;
+    }
+
+    downloads.innerHTML = '';
+    downloads.classList.add('hidden');
+
+    try {
+      const res = await fetch('../letters/generate_letters.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          gender: selectedGender,
+          data: extractedData
+        })
+      });
+
+      const text = await res.text();
+      let json;
+
+      try {
+        json = JSON.parse(text);
+      } catch {
+        alert('Invalid response from letter generator. Check console.');
+        console.error(text);
+        return;
+      }
+
+      if (json.status !== 'success') {
+        alert(json.message || 'Letter generation failed');
+        return;
+      }
+
+      json.files.forEach(f => {
+        const a = document.createElement('a');
+        a.href = f.path;
+        a.textContent = '⬇ Download ' + f.name;
+        a.setAttribute('download', f.name);
+        downloads.appendChild(a);
+      });
+
+      downloads.classList.remove('hidden');
+
+    } catch (err) {
+      console.error(err);
+      alert('Network error during letter generation');
+    }
+  });
+
+});
+</script>
+
+</body>
+</html>

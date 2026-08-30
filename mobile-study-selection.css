@@ -1,0 +1,195 @@
+/* =====================================================
+   MOBILE STUDY SELECTION – PRODUCTION CSS
+   Scope: Mobile only (<= 768px)
+   File: mobile-study-selection.css
+===================================================== */
+
+@media (max-width: 768px) {
+
+  /* ===============================
+     GLOBAL MOBILE SPACING
+  =============================== */
+
+  body {
+    background: #f3f6fb;
+  }
+
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .card {
+    border-radius: 14px;
+    background: #ffffff;
+  }
+
+  .card-body {
+    padding: 1.25rem;
+  }
+
+  /* ===============================
+     STEP SECTION (CARD INSIDE)
+  =============================== */
+
+  .step-section {
+    padding: 1.5rem 1.25rem;
+    border-radius: 16px;
+    margin-bottom: 1.5rem;
+  }
+
+  .step-section::before {
+    width: 4px;
+  }
+
+  .step-section h5 {
+    font-size: 16px;
+  }
+
+  .step-section p {
+    font-size: 13px;
+  }
+
+  /* ===============================
+     SEARCH AREA
+  =============================== */
+
+  #studySearch {
+    font-size: 14px;
+  }
+
+  #searchLevel {
+    font-size: 14px;
+  }
+
+  #clearSearch {
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 10px;
+  }
+
+  /* Stack search fields nicely */
+  .row.g-2 > div {
+    width: 100%;
+  }
+
+  /* ===============================
+     STUDY EMPTY STATE
+  =============================== */
+
+  .study-empty {
+    padding: 1.25rem;
+    font-size: 13px;
+    border-radius: 14px;
+  }
+
+  /* ===============================
+     STUDY CHOICE CARD
+  =============================== */
+
+  .study-choice {
+    padding: 1.25rem;
+    border-radius: 16px;
+    box-shadow:
+      0 8px 18px rgba(15, 23, 42, 0.06),
+      0 2px 6px rgba(15, 23, 42, 0.04);
+  }
+
+  .study-choice + .study-choice {
+    margin-top: 1.25rem;
+  }
+
+  /* Header */
+  .study-choice-header {
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  /* ===============================
+     REGION BADGE
+  =============================== */
+
+  .region-badge {
+    font-size: 11px;
+    padding: 5px 10px;
+    border-radius: 999px;
+  }
+
+  /* Remove button */
+  .btn-remove {
+    font-size: 12px;
+    padding: 0;
+  }
+
+  /* ===============================
+     FORM FIELDS INSIDE CARD
+  =============================== */
+
+  .study-choice .form-label {
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+
+  .study-choice .form-select {
+    min-height: 44px;
+    font-size: 14px;
+    border-radius: 10px;
+  }
+
+  /* Stack selects vertically */
+  .study-choice .row.g-3 > div {
+    width: 100%;
+  }
+
+  /* ===============================
+     SELECT2 MOBILE FIXES
+  =============================== */
+
+  .select2-container--bootstrap-5 .select2-selection {
+    min-height: 44px;
+    font-size: 14px;
+    border-radius: 10px;
+  }
+
+  .select2-container--bootstrap-5 .select2-selection--multiple {
+    min-height: 44px;
+    padding: 6px 10px;
+  }
+
+  .select2-container--bootstrap-5
+  .select2-selection__choice {
+    font-size: 11px;
+    padding: 4px 9px;
+  }
+
+  /* ===============================
+     PROGRESS BAR (TOP)
+  =============================== */
+
+  .progress-step {
+    gap: 6px;
+    margin-bottom: 1.25rem;
+  }
+
+  .progress-step span {
+    height: 5px;
+  }
+
+  /* ===============================
+     NAVIGATION BUTTONS
+  =============================== */
+
+  .form-nav,
+  .d-flex.justify-content-between {
+    gap: 10px;
+  }
+
+  #prevBtn,
+  #nextBtn {
+    width: 100%;
+    font-size: 14px;
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+}

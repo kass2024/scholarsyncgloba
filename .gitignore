@@ -1,0 +1,177 @@
+# ================================
+
+# ENV & SECRETS
+
+# ================================
+
+.env
+.env.*
+!.env.example
+
+# ================================
+
+# COMPOSER / PHP
+
+# ================================
+
+/vendor/
+/composer.lock
+
+# ================================
+
+# NODE / FRONTEND
+
+# ================================
+
+/node_modules/
+/npm-debug.log*
+/yarn-error.log*
+
+# ================================
+
+# BUILD FILES
+
+# ================================
+
+/dist/
+/build/
+/public/build/
+
+# ================================
+
+# DATABASE / CONFIG
+
+# ================================
+
+# Database connection code is environment-driven and safe to version.
+
+# ================================
+
+# LOGS
+
+# ================================
+
+*.log
+error_log
+
+# ================================
+
+# CACHE / TEMP
+
+# ================================
+
+/tmp/
+/temp/
+/cache/
+/storage/
+/sessions/
+
+# ================================
+
+# UPLOADS (VERY IMPORTANT)
+
+# ================================
+
+/uploads/
+/files/
+/documents/
+/contracts/
+/images/
+/signatures/
+
+# ================================
+
+# ARCHIVES / LARGE FILES (CAUSE OF YOUR ERROR)
+
+# ================================
+
+*.zip
+*.tar
+*.gz
+*.rar
+*.7z
+
+# ================================
+
+# SYSTEM FILES
+
+# ================================
+
+.DS_Store
+Thumbs.db
+
+# ================================
+
+# IDE / EDITOR
+
+# ================================
+
+.vscode/
+.idea/
+*.swp
+
+# ================================
+
+# SSH / KEYS
+
+# ================================
+
+*.pem
+*.key
+id_rsa
+*.p12
+
+# ================================
+
+# DEBUG FILES
+
+# ================================
+
+openai_key_debug.txt
+
+# Service-account and local diagnostic artifacts
+/*-firebase-adminsdk*.json
+/credentials.json
+/php_crash_log.txt
+/curl_debug_output.html
+/db1.php
+/db_danfold.php
+/debug-*.php
+/diagnose-*.php
+/simple-cpanel-test.php
+/submit-partner-signature-debug.php
+/test-*.php
+/tools/_*.php
+/payments/mopay/storage/
+/payments/mopay/logs/
+/tools/*.pdf
+/cards/templates/*.pdf
+/deploy/__pycache__/
+/__pycache__/
+/bg.jpg
+/logs/
+/admission_letters/
+/admin/generated_contracts/
+/generated/
+/pdfs/
+/receipts/
+/letters/
+/extract/
+/payments/mopay/storage/
+/payments/mopay/logs/
+/admin/*.docx
+/admin/*.pdf
+/admin/*.png
+/generated_contracts/
+/*.pdf
+/*.docx
+/*.xlsx
+/*.png
+/log.json
+/notify.mp3
+/test_*.php
+/simple_test.php
+/phpinfo_test.php
+/mobile-test.html
+/verify-layout-fix.php
+

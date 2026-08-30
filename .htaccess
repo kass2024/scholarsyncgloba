@@ -1,0 +1,9 @@
+# Zoom Meeting SDK — gallery view + screen share need cross-origin isolation.
+# Requires Apache mod_headers (enabled on most cPanel hosts).
+<IfModule mod_headers.c>
+  <FilesMatch "francophonie-meeting-(host|join)\.php$">
+    Header set Cross-Origin-Opener-Policy "same-origin"
+    Header set Cross-Origin-Embedder-Policy "credentialless"
+    Header set Permissions-Policy "camera=(self), microphone=(self)"
+  </FilesMatch>
+</IfModule>

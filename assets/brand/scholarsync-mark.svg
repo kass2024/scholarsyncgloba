@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title">
+  <title id="title">ScholarSync Global</title>
+  <defs>
+    <linearGradient id="navy" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#234f84"/>
+      <stop offset="1" stop-color="#102d55"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd05a"/>
+      <stop offset="1" stop-color="#e99d12"/>
+    </linearGradient>
+  </defs>
+  <circle cx="80" cy="80" r="74" fill="#fff" stroke="#1aa6a2" stroke-width="5"/>
+  <path d="M31 91c18-39 51-58 98-56-34 14-48 36-43 66-20 3-38 0-55-10z" fill="url(#gold)"/>
+  <path d="M32 112c38 9 67-7 87-48 8-15 18-27 31-36-7 27-17 50-31 68-23 29-52 35-87 16z" fill="url(#navy)"/>
+  <path d="M49 103V73c11 1 21 5 31 12 10-7 20-11 31-12v30c-11-4-21-3-31 4-10-7-20-8-31-4z" fill="#1aa6a2"/>
+  <path d="M80 84v24M55 82c9 1 17 4 25 10 8-6 16-9 25-10" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+</svg>

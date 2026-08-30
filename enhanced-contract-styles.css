@@ -1,0 +1,358 @@
+/* Enhanced Contract Styles for Professional PDF Generation */
+
+/* Base typography and layout */
+.contract-container {
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size: 11pt;
+    line-height: 1.6;
+    color: #1a1a1a;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Professional header styling */
+.contract-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid #1a1a1a;
+}
+
+.contract-title {
+    font-size: 24pt;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 20px 0 15px 0;
+    color: #1a1a1a;
+}
+
+.contract-subtitle {
+    font-size: 14pt;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Section styling */
+.contract-section {
+    margin-bottom: 30px;
+    page-break-inside: avoid;
+}
+
+.section-title {
+    font-size: 16pt;
+    font-weight: bold;
+    margin-top: 36px;
+    margin-bottom: 18px;
+    color: #1a1a1a;
+    border-bottom: 2px solid #1a1a1a;
+    padding-bottom: 8px;
+    page-break-after: avoid;
+}
+
+.subsection-title {
+    font-size: 14pt;
+    font-weight: bold;
+    margin-top: 28px;
+    margin-bottom: 14px;
+    color: #1a1a1a;
+}
+
+/* Party information styling */
+.party-info {
+    padding: 20px;
+    margin: 20px 0;
+    border: 2px solid #1a1a1a;
+    background: #ffffff;
+    page-break-inside: avoid;
+}
+
+.party-info h4 {
+    margin: 0 0 15px 0;
+    color: #1a1a1a;
+    font-size: 14pt;
+    border-bottom: 1px solid #1a1a1a;
+    padding-bottom: 8px;
+}
+
+/* Form styling for contract inputs */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #1a1a1a;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: "Georgia", serif;
+    font-size: 11pt;
+}
+
+.form-group textarea {
+    height: 60px;
+    resize: vertical;
+}
+
+/* Signature area styling */
+.signature-section {
+    margin-top: 60px;
+    page-break-inside: avoid;
+}
+
+.signature-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+    margin-top: 40px;
+    page-break-inside: avoid;
+}
+
+.signature-block {
+    flex: 1;
+    min-width: 0;
+    page-break-inside: avoid;
+}
+
+.signature-box {
+    border: 2px solid #1a1a1a;
+    padding: 30px 25px;
+    text-align: center;
+    background: #ffffff;
+    page-break-inside: avoid;
+}
+
+.company-title {
+    font-size: 14pt;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #1a1a1a;
+    border-bottom: 2px solid #1a1a1a;
+    padding-bottom: 10px;
+}
+
+.representative-info {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.representative-info p {
+    margin: 5px 0;
+    text-align: left;
+    font-size: 11pt;
+}
+
+.signature-label {
+    font-weight: bold;
+    font-size: 12pt;
+    margin: 25px 0 20px 0;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-top: 1px solid #1a1a1a;
+    padding-top: 15px;
+}
+
+.signature-area {
+    border: 1px solid #1a1a1a;
+    min-height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    background: #fafafa;
+    padding: 20px;
+    position: relative;
+}
+
+.signature-canvas {
+    border: 1px dashed #ccc;
+    background: white;
+    cursor: crosshair;
+    display: block;
+    margin: 0 auto;
+}
+
+.signature-placeholder {
+    width: 200px;
+    height: 2px;
+    background: #1a1a1a;
+    position: relative;
+}
+
+.date-line {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 11pt;
+    font-style: italic;
+    color: #555;
+}
+
+/* Button styling */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14pt;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 10px 5px;
+}
+
+.btn-primary {
+    background: #1a1a1a;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #333;
+}
+
+.btn-secondary {
+    background: #ccc;
+    color: #1a1a1a;
+}
+
+.btn-secondary:hover {
+    background: #ddd;
+}
+
+/* Print-specific styles */
+@media print {
+    .contract-container {
+        padding: 0;
+    }
+    
+    .btn {
+        display: none;
+    }
+    
+    .signature-canvas {
+        display: none;
+    }
+    
+    .signature-placeholder {
+        display: block;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        border: none;
+        background: transparent;
+        padding: 0;
+    }
+    
+    .page-break {
+        page-break-before: always;
+    }
+    
+    .avoid-break {
+        page-break-inside: avoid;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .signature-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .contract-container {
+        padding: 10px;
+    }
+    
+    .contract-title {
+        font-size: 20pt;
+    }
+    
+    .section-title {
+        font-size: 14pt;
+    }
+}
+
+/* Professional legal document styling */
+.legal-document {
+    counter-reset: section;
+}
+
+.legal-document .section-title::before {
+    counter-increment: section;
+    content: counter(section) ". ";
+    font-weight: bold;
+}
+
+/* Footer styling */
+.contract-footer {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 10pt;
+    color: #666;
+    border-top: 2px solid #1a1a1a;
+    padding-top: 20px;
+    page-break-inside: avoid;
+}
+
+/* List styling */
+.contract-list {
+    margin: 12px 0;
+    padding-left: 25px;
+}
+
+.contract-list li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+/* Table styling */
+.contract-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.contract-table th,
+.contract-table td {
+    border: 1px solid #1a1a1a;
+    padding: 10px;
+    text-align: left;
+}
+
+.contract-table th {
+    background: #f5f5f5;
+    font-weight: bold;
+}
+
+/* Highlight styling */
+.highlight {
+    background: #ffffcc;
+    padding: 2px 4px;
+}
+
+/* Important notice styling */
+.important-notice {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+
+.important-notice::before {
+    content: "IMPORTANT: ";
+    font-weight: bold;
+    color: #856404;
+}

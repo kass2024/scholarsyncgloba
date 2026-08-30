@@ -1,0 +1,100 @@
+/**
+ * ScholarSync Global — global responsive polish (all pages using header.php)
+ */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body.site-body {
+  overflow-x: clip;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+.section-description,
+.footer-brand-description {
+  max-width: 65ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Tables (forms, admin-style) scroll on small screens */
+table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Touch-friendly tap targets for header actions */
+@media (pointer: coarse) {
+  header .get-started,
+  header .dropbtn,
+  header .language-switcher-toggle,
+  header .mobile-menu-toggle {
+    min-height: 44px;
+  }
+}
+
+/* Footer: social row breathes on narrow screens */
+@media (max-width: 480px) {
+  .footer-social-links {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .footer-social-link {
+    width: 40px;
+    height: 40px;
+  }
+
+  .footer-main {
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
+  }
+
+  .footer-bottom-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .footer-chat-system {
+    right: max(16px, env(safe-area-inset-right)) !important;
+    bottom: max(16px, env(safe-area-inset-bottom)) !important;
+  }
+}
+
+/* Chat window uses full width on very small devices */
+@media (max-width: 400px) {
+  .footer-chat-window {
+    width: calc(100vw - 24px) !important;
+    right: 12px !important;
+  }
+}
+
+/* Safe area for sticky header on notched phones */
+header {
+  padding-left: max(16px, env(safe-area-inset-left));
+  padding-right: max(16px, env(safe-area-inset-right));
+}
+
+/* Mobile header: logo + controls on row 1, tagline full width on row 2 (see header.php) */
+@media (max-width: 992px) {
+  header .header-toolbar {
+    flex-shrink: 0;
+  }
+
+  header .language-switcher-dropdown {
+    max-width: min(260px, calc(100vw - 32px));
+  }
+}
