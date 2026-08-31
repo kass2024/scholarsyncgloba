@@ -63,7 +63,7 @@ BEGIN
     DELETE FROM `admins` WHERE `id` <> 1;
     UPDATE `admins`
     SET
-        `username` = 'admin',
+        `username` = 'scholarsync',
         `first_name` = 'ScholarSync',
         `last_name` = 'Global',
         `full_name` = 'ScholarSync Global',

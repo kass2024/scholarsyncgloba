@@ -520,7 +520,7 @@ body::before {
               type="text"
               id="username"
               name="username"
-              placeholder="admin or infos@scholarsyncglobal.ca"
+              placeholder="scholarsync or infos@scholarsyncglobal.ca"
               required
               autocomplete="username"
               autofocus

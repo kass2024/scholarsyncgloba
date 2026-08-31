@@ -8,7 +8,7 @@ SET
   `last_name` = 'Global',
   `full_name` = 'ScholarSync Global',
   `email` = 'infos@scholarsyncglobal.ca'
-WHERE `id` = 1 AND `username` = 'admin';
+WHERE `id` = 1;
 
 UPDATE `admins`
 SET
