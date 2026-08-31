@@ -77,6 +77,13 @@ def upload_tree(sftp: paramiko.SFTPClient) -> int:
 
 
 def write_remote_env(sftp: paramiko.SFTPClient) -> None:
+    local_env = ROOT / ".env"
+    remote_path = posixpath.join(REMOTE_ROOT, ".env")
+    if local_env.is_file():
+        sftp.put(str(local_env), remote_path)
+        sftp.chmod(remote_path, stat.S_IRUSR | stat.S_IWUSR)
+        return
+
     values = {
         "DB_HOST": os.environ.get("DB_HOST", "127.0.0.1"),
         "DB_NAME": os.environ.get("DB_NAME", "visawgnz_scholarsyncglobal"),
@@ -91,7 +98,6 @@ def write_remote_env(sftp: paramiko.SFTPClient) -> None:
         "APP_PUBLIC_URL": "https://scholarsyncglobal.ca",
     }
     payload = "".join(f"{key}={value}\n" for key, value in values.items())
-    remote_path = posixpath.join(REMOTE_ROOT, ".env")
     with sftp.file(remote_path, "w") as handle:
         handle.write(payload)
     sftp.chmod(remote_path, stat.S_IRUSR | stat.S_IWUSR)
