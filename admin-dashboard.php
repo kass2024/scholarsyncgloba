@@ -511,24 +511,29 @@ if (strtolower($role) !== 'catholic university of america') {
       WHERE agent_email IS NOT NULL AND agent_email != ''
       GROUP BY agent_email
     ";
-    $res2 = mysqli_query($conn2, $cyprusQuery);
-    while ($r = mysqli_fetch_assoc($res2)) {
-        $email = strtolower(trim($r['agent_email']));
-        $name = trim(($r['agent_first_name'] ?? '') . ' ' . ($r['agent_last_name'] ?? ''));
-        if (!isset($agentsCombined[$email])) {
-            $agentsCombined[$email] = [
-                'email' => $email,
-                'name' => $name ?: $email,
-                'total' => 0,
-                'submitted' => 0,
-                'admit' => 0,
-                'visa_approved' => 0,
-                'enrolled' => 0,
-            ];
+    $applicationsTable = mysqli_query($conn2, "SHOW TABLES LIKE 'applications'");
+    if ($applicationsTable && mysqli_num_rows($applicationsTable) > 0) {
+        $res2 = mysqli_query($conn2, $cyprusQuery);
+        if ($res2) {
+            while ($r = mysqli_fetch_assoc($res2)) {
+                $email = strtolower(trim($r['agent_email']));
+                $name = trim(($r['agent_first_name'] ?? '') . ' ' . ($r['agent_last_name'] ?? ''));
+                if (!isset($agentsCombined[$email])) {
+                    $agentsCombined[$email] = [
+                        'email' => $email,
+                        'name' => $name ?: $email,
+                        'total' => 0,
+                        'submitted' => 0,
+                        'admit' => 0,
+                        'visa_approved' => 0,
+                        'enrolled' => 0,
+                    ];
+                }
+                $agentsCombined[$email]['total'] += (int)$r['total_students'];
+                $agentsCombined[$email]['submitted'] += (int)$r['submitted'];
+                $agentsCombined[$email]['admit'] += (int)$r['admit'];
+            }
         }
-        $agentsCombined[$email]['total'] += (int)$r['total_students'];
-        $agentsCombined[$email]['submitted'] += (int)$r['submitted'];
-        $agentsCombined[$email]['admit'] += (int)$r['admit'];
     }
 
     foreach ($agentsCombined as $agent) {
