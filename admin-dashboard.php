@@ -587,17 +587,17 @@ if (!empty($showStaffPersonalDashboard) && strtolower($role) !== 'catholic unive
   <!-- ScholarSync Global Color Scheme -->
   <style>
     :root {
-      --navy: #427431;
-      --navy-secondary: #3661B9;
-      --navy-dark: #2f5a26;
-      --gold: #E21D1E;
+      --navy: #173c6d;
+      --navy-secondary: #1ba7a0;
+      --navy-dark: #0b2140;
+      --gold: #f4b52e;
       --white: #FFFFFF;
-      --page-bg: #eef2f7;
-      --surface: #f8fafc;
-      --surface-2: #f1f5f9;
-      --border: #e2e8f0;
-      --text: #1e3a2f;
-      --text-brand: #427431;
+      --page-bg: #f3f7fb;
+      --surface: #ffffff;
+      --surface-2: #edf4f8;
+      --border: #dbe7ef;
+      --text: #14253d;
+      --text-brand: #173c6d;
       --muted: #64748b;
       --focus: rgba(66, 116, 49, .22);
       --success: #0d9f6e;
@@ -629,8 +629,8 @@ if (!empty($showStaffPersonalDashboard) && strtolower($role) !== 'catholic unive
     body {
       font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
       background:
-        radial-gradient(ellipse 90% 60% at 100% 0%, rgba(66, 116, 49, 0.08) 0%, transparent 50%),
-        radial-gradient(ellipse 70% 50% at 0% 100%, rgba(54, 97, 185, 0.06) 0%, transparent 45%),
+        radial-gradient(ellipse 90% 60% at 100% 0%, rgba(27, 167, 160, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse 70% 50% at 0% 100%, rgba(244, 181, 46, 0.09) 0%, transparent 45%),
         var(--page-bg);
       color: var(--text);
       min-height: 100vh;
@@ -640,10 +640,10 @@ if (!empty($showStaffPersonalDashboard) && strtolower($role) !== 'catholic unive
 
     /* ========== SIDEBAR ========== */
     .sidebar {
-      width: 288px;
+      width: 268px;
       background:
         linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, transparent 28%),
-        linear-gradient(165deg, #1a3214 0%, var(--navy-dark) 38%, var(--navy) 100%);
+        linear-gradient(165deg, #0b2140 0%, var(--navy-dark) 42%, var(--navy) 100%);
       color: white;
       position: fixed;
       top: 0;
@@ -663,21 +663,21 @@ if (!empty($showStaffPersonalDashboard) && strtolower($role) !== 'catholic unive
     }
 
     .sidebar-header {
-      padding: 22px 18px 20px;
+      padding: 28px 18px 24px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       align-items: center;
       gap: 14px;
-      text-align: left;
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, transparent 100%);
+      text-align: center;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.24) 0%, transparent 100%);
     }
 
     /* Circular seal — transparent PNG, no white rectangle */
     .logo-container {
-      width: 54px;
-      height: 54px;
-      min-width: 54px;
+      width: 82px;
+      height: 82px;
+      min-width: 82px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -685,7 +685,7 @@ if (!empty($showStaffPersonalDashboard) && strtolower($role) !== 'catholic unive
       padding: 0;
       overflow: hidden;
       background: rgba(255, 255, 255, 0.12);
-      border: 2px solid rgba(255, 255, 255, 0.35);
+      border: 3px solid rgba(244, 181, 46, 0.82);
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
     }
 
@@ -703,8 +703,8 @@ if (!empty($showStaffPersonalDashboard) && strtolower($role) !== 'catholic unive
     }
 
     .sidebar-header h3 {
-      font-size: 1.05rem;
-      font-weight: 700;
+      font-size: 1.08rem;
+      font-weight: 800;
       margin: 0;
       line-height: 1.35;
       color: white;
@@ -713,8 +713,9 @@ if (!empty($showStaffPersonalDashboard) && strtolower($role) !== 'catholic unive
 
     .sidebar-header h3 small {
       display: block;
-      font-size: 0.78rem;
-      opacity: 0.88;
+      font-size: 0.72rem;
+      color: rgba(255, 255, 255, 0.72);
+      opacity: 1;
       font-weight: 500;
       letter-spacing: 0.01em;
     }
@@ -834,7 +835,7 @@ if (!empty($showStaffPersonalDashboard) && strtolower($role) !== 'catholic unive
 
     /* ========== MAIN CONTENT ========== */
     .main-content {
-      margin-left: 288px;
+      margin-left: 268px;
       min-height: 100vh;
       transition: margin-left 0.3s ease;
       display: flex;
@@ -843,10 +844,10 @@ if (!empty($showStaffPersonalDashboard) && strtolower($role) !== 'catholic unive
 
     /* ========== TOPBAR ========== */
     .topbar {
-      background: rgba(255, 255, 255, 0.86);
+      background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      padding: 16px 32px;
+      padding: 18px 32px;
       border-bottom: 1px solid rgba(226, 232, 240, 0.9);
       box-shadow: 0 4px 24px -4px rgba(15, 23, 42, 0.07);
       position: sticky;
@@ -861,7 +862,7 @@ if (!empty($showStaffPersonalDashboard) && strtolower($role) !== 'catholic unive
     }
 
     .page-title h1 {
-      font-size: 1.5rem;
+      font-size: 1.65rem;
       font-weight: 800;
       letter-spacing: -0.03em;
       color: var(--text-brand);
@@ -872,6 +873,16 @@ if (!empty($showStaffPersonalDashboard) && strtolower($role) !== 'catholic unive
       color: var(--muted);
       margin: 0;
       font-size: 0.9rem;
+    }
+
+    .page-title::before {
+      content: 'SCHOLARSYNC GLOBAL  /  OPERATIONS';
+      display: block;
+      color: var(--navy-secondary);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      margin-bottom: 4px;
     }
 
     .topbar-actions {
@@ -1696,7 +1707,7 @@ if (!empty($showStaffPersonalDashboard) && strtolower($role) !== 'catholic unive
     @media (max-width: 992px) {
       .sidebar {
         transform: translateX(-100%);
-        width: 288px;
+        width: 268px;
       }
       
       .sidebar.show {
@@ -1837,6 +1848,116 @@ if (!empty($showStaffPersonalDashboard) && strtolower($role) !== 'catholic unive
       border-color: var(--navy);
       box-shadow: 0 0 0 0.2rem rgba(1, 47, 107, 0.25);
     }
+
+    /* ========== SCHOLARSYNC GLOBAL DASHBOARD REFRESH ========== */
+    .content-wrapper {
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .dashboard-hero .hero-card {
+      min-height: 142px;
+      padding: 24px;
+      border: 1px solid rgba(23, 60, 109, 0.08);
+      border-top: 4px solid var(--navy-secondary);
+      border-radius: 20px;
+      box-shadow: 0 14px 34px rgba(23, 60, 109, 0.09);
+    }
+
+    .dashboard-hero .hero-card.success {
+      border-top-color: var(--navy-secondary);
+      border-left: 0;
+    }
+
+    .dashboard-hero .hero-card.info {
+      border-top-color: var(--navy);
+      border-left: 0;
+    }
+
+    .dashboard-hero .hero-card.warning {
+      border-top-color: var(--gold);
+      border-left: 0;
+    }
+
+    .hero-meta {
+      color: var(--navy);
+      letter-spacing: 0.08em;
+    }
+
+    .hero-value {
+      color: var(--navy-dark);
+      font-size: 2.35rem;
+    }
+
+    .hero-icon {
+      color: var(--navy-secondary);
+      opacity: 0.18;
+    }
+
+    .summary-card,
+    .payment-dashboard,
+    .staff-hub-shell,
+    .staff-agent-panel {
+      border-radius: 20px;
+      box-shadow: 0 14px 34px rgba(23, 60, 109, 0.08);
+    }
+
+    .summary-header {
+      background: linear-gradient(115deg, var(--navy-dark), var(--navy) 58%, var(--navy-secondary));
+      padding: 20px 24px;
+    }
+
+    .summary-icon {
+      background: rgba(244, 181, 46, 0.2);
+      border-color: rgba(244, 181, 46, 0.65);
+    }
+
+    .flag-btn {
+      min-height: 58px;
+      border-radius: 12px;
+      border-color: #d7e4ec;
+    }
+
+    .flag-btn:hover {
+      background: var(--navy);
+      border-color: var(--navy);
+      box-shadow: 0 10px 22px rgba(23, 60, 109, 0.2);
+    }
+
+    .flag-count {
+      background: var(--gold);
+      color: var(--navy-dark);
+    }
+
+    .payment-dashboard {
+      border-top: 4px solid var(--gold);
+    }
+
+    .pay-dash-header h3 {
+      color: var(--navy);
+    }
+
+    .staff-hub-welcome {
+      background: linear-gradient(115deg, var(--navy-dark), var(--navy) 58%, var(--navy-secondary));
+      box-shadow: 0 14px 32px rgba(23, 60, 109, 0.2);
+    }
+
+    .btn-primary,
+    .btn.btn-create-reminder {
+      background: linear-gradient(115deg, var(--navy), var(--navy-secondary)) !important;
+    }
+
+    .btn-primary:hover,
+    .btn.btn-create-reminder:hover {
+      background: linear-gradient(115deg, var(--navy-dark), var(--navy)) !important;
+    }
+
+    @media (min-width: 1400px) {
+      .content-wrapper {
+        padding-left: 44px;
+        padding-right: 44px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1856,7 +1977,7 @@ if (!empty($showStaffPersonalDashboard) && strtolower($role) !== 'catholic unive
       <div class="logo-container">
         <img src="scholarsync-global-logo.jpg" alt="" decoding="async" onerror="this.onerror=null;this.src='assets/brand/scholarsync-mark.svg';this.classList.add('logo-fallback-svg');">
       </div>
-      <h3>Partners of ScholarSync<br><small>Canada Visa Consultant</small></h3>
+      <h3>ScholarSync Global<br><small>Operations Console</small></h3>
     </div>
     
     <!-- Dashboard Section -->
