@@ -25,16 +25,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'] ?? '';
 
     $stmt = $conn->prepare(
-        "SELECT id, password_hash, full_name, role
+        "SELECT id, username, password_hash, full_name, role
          FROM admins
-         WHERE username = ?"
+         WHERE LOWER(TRIM(username)) = LOWER(TRIM(?))
+            OR LOWER(TRIM(COALESCE(email, ''))) = LOWER(TRIM(?))
+         LIMIT 1"
     );
 
     if (!$stmt) {
         $error = "System error. Please contact administrator.";
     } else {
 
-        $stmt->bind_param("s", $username);
+        $stmt->bind_param("ss", $username, $username);
         $stmt->execute();
         $result = $stmt->get_result();
         $admin  = $result->fetch_assoc();
@@ -46,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $_SESSION['id']        = $admin['id'];
             $_SESSION['admin_id'] = $admin['id'];
-            $_SESSION['username'] = $username;
+            $_SESSION['username'] = $admin['username'] ?? $username;
             $_SESSION['name']     = $admin['full_name'];
             $_SESSION['role']     = pcvc_normalize_role_string($admin['role'] ?? '');
 
@@ -497,18 +499,18 @@ body::before {
 
       <form method="post" id="loginForm" autocomplete="off" novalidate>
         <div class="form-group">
-          <label for="username">Email address</label>
+          <label for="username">Username or email address</label>
           <div class="input-shell">
             <input
               type="text"
               id="username"
               name="username"
-              placeholder="infos@scholarsyncglobal.ca"
+              placeholder="admin or infos@scholarsyncglobal.ca"
               required
               autocomplete="username"
               autofocus
               inputmode="email"
-              aria-label="Email address or username"
+              aria-label="Username or email address"
             >
           </div>
         </div>
