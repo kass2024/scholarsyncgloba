@@ -2000,7 +2000,7 @@ if (!empty($showStaffPersonalDashboard) && strtolower($role) !== 'catholic unive
   <div class="sidebar" id="sidebar">
     <div class="sidebar-header">
       <div class="logo-container">
-        <img src="scholarsync-global-logo.jpg" alt="" decoding="async" onerror="this.onerror=null;this.src='assets/brand/scholarsync-mark.svg';this.classList.add('logo-fallback-svg');">
+        <img src="assets/brand/scholarsync-dashboard-logo.png" alt="ScholarSync Global" decoding="async" onerror="this.onerror=null;this.src='assets/brand/scholarsync-mark.svg';this.classList.add('logo-fallback-svg');">
       </div>
       <h3>ScholarSync Global<br><small>Operations Console</small></h3>
     </div>
