@@ -697,9 +697,17 @@ if (!empty($showStaffPersonalDashboard) && strtolower($role) !== 'catholic unive
       object-position: center;
     }
 
+    .logo-container img.dashboard-logo-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.12);
+    }
+
     .logo-container img.logo-fallback-svg {
       width: 70%;
       height: 70%;
+      transform: none;
     }
 
     .sidebar-header h3 {
@@ -2000,7 +2008,7 @@ if (!empty($showStaffPersonalDashboard) && strtolower($role) !== 'catholic unive
   <div class="sidebar" id="sidebar">
     <div class="sidebar-header">
       <div class="logo-container">
-        <img src="assets/brand/scholarsync-dashboard-logo.png" alt="ScholarSync Global" decoding="async" onerror="this.onerror=null;this.src='assets/brand/scholarsync-mark.svg';this.classList.add('logo-fallback-svg');">
+        <img class="dashboard-logo-image" src="assets/brand/scholarsync-dashboard-logo.png" alt="ScholarSync Global" decoding="async" onerror="this.onerror=null;this.src='assets/brand/scholarsync-mark.svg';this.classList.add('logo-fallback-svg');">
       </div>
       <h3>ScholarSync Global<br><small>Operations Console</small></h3>
     </div>

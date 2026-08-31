@@ -202,10 +202,18 @@ body::before {
   object-position: center;
 }
 
+.brand-panel .logo-wrap img.dashboard-logo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.12);
+}
+
 /* Fallback vector mark: slightly smaller inside circle */
 .brand-panel .logo-wrap img.logo-fallback-svg {
   width: 72%;
   height: 72%;
+  transform: none;
 }
 
 .brand-panel h1 {
@@ -307,9 +315,16 @@ body::before {
   object-fit: contain;
   object-position: center;
 }
+.mobile-brand .logo-sm img.dashboard-logo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.12);
+}
 .mobile-brand .logo-sm img.logo-fallback-svg {
   width: 70%;
   height: 70%;
+  transform: none;
 }
 .mobile-brand h2 { font-size: 1.1rem; font-weight: 700; color: var(--pcv-text); }
 .mobile-brand p { font-size: 0.8rem; color: var(--pcv-text-muted); margin-top: 4px; }
@@ -466,7 +481,7 @@ body::before {
 
   <aside class="brand-panel" aria-hidden="false">
     <div class="logo-wrap">
-      <img src="scholarsync-global-logo.jpg" alt="ScholarSync Global" loading="eager" decoding="async" onerror="this.onerror=null;this.src='assets/brand/scholarsync-mark.svg';this.classList.add('logo-fallback-svg');">
+      <img class="dashboard-logo-image" src="assets/brand/scholarsync-dashboard-logo.png" alt="ScholarSync Global" loading="eager" decoding="async" onerror="this.onerror=null;this.src='assets/brand/scholarsync-mark.svg';this.classList.add('logo-fallback-svg');">
     </div>
     <h1>ScholarSync Global</h1>
     <p class="lead">
@@ -481,7 +496,7 @@ body::before {
 
       <div class="mobile-brand">
         <div class="logo-sm">
-          <img src="scholarsync-global-logo.jpg" alt="" loading="lazy" onerror="this.onerror=null;this.src='assets/brand/scholarsync-mark.svg';this.classList.add('logo-fallback-svg');">
+          <img class="dashboard-logo-image" src="assets/brand/scholarsync-dashboard-logo.png" alt="ScholarSync Global" loading="lazy" onerror="this.onerror=null;this.src='assets/brand/scholarsync-mark.svg';this.classList.add('logo-fallback-svg');">
         </div>
         <h2>ScholarSync Global</h2>
         <p>Admin sign in</p>
