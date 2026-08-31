@@ -48,10 +48,10 @@ $index_translations = [
         'partners_uni_title' => 'Partner universities',
         'partners_uni_sub' => 'Institutions we collaborate with worldwide',
         'contact_banner_title' => 'Feel free to reach out — we\'re here to assist you',
-        'contact_phone' => '+250 788 284 544',
-        'contact_phone2' => '+250 789 515 593',
+        'contact_phone' => '+14313059527',
+        'contact_phone2' => '+14313059527',
         'contact_email' => 'infos@scholarsyncglobal.ca',
-        'contact_address' => 'Town Center Building (near Simba Supermarket), 2nd Floor, Door: F2B-022C, Nyarugenge — Kigali, Rwanda',
+        'contact_address' => 'Kigali, Rwanda',
         
         // Stats Section
         'stats_students' => 'Students Placed',
@@ -329,10 +329,10 @@ $index_translations = [
         'partners_uni_title' => 'Universités partenaires',
         'partners_uni_sub' => 'Institutions avec lesquelles nous collaborons',
         'contact_banner_title' => 'Contactez-nous — nous sommes là pour vous aider',
-        'contact_phone' => '+250 788 284 544',
-        'contact_phone2' => '+250 789 515 593',
+        'contact_phone' => '+14313059527',
+        'contact_phone2' => '+14313059527',
         'contact_email' => 'infos@scholarsyncglobal.ca',
-        'contact_address' => 'Town Center Building (près de Simba Supermarket), 2e étage, Porte : F2B-022C, Nyarugenge — Kigali, Rwanda',
+        'contact_address' => 'Kigali, Rwanda',
         
         // Stats Section
         'stats_students' => 'Étudiants placés',
@@ -1791,6 +1791,518 @@ body.card-only-mode {
   .section-padding { padding: 2.5rem 1rem !important; }
   .section-title { font-size: 1.35rem !important; }
 }
+
+/* =========================================================
+   SCHOLARSYNC GLOBAL HOMEPAGE — EDITORIAL REDESIGN
+   Keep the existing PHP content and interactions, but give
+   every section one consistent, spacious visual language.
+   ========================================================= */
+.landing-root {
+  --lp-green: #173c6d;
+  --lp-green-mid: #234f84;
+  --lp-blue: #14a6a2;
+  --lp-red: #f4b52e;
+  --lp-bg: #f4f7fb;
+  --lp-surface: #ffffff;
+  --lp-text: #10233f;
+  --lp-muted: #64748b;
+  --lp-radius: 22px;
+  --lp-shadow: 0 18px 50px rgba(23, 60, 109, 0.09);
+  background: var(--lp-bg);
+  color: var(--lp-text);
+  overflow: hidden;
+}
+
+.landing-root .hero-landing {
+  min-height: 620px;
+  display: flex;
+  align-items: center;
+  padding: clamp(4rem, 9vw, 7rem) clamp(1.25rem, 5vw, 5rem);
+  background:
+    radial-gradient(circle at 90% 15%, rgba(20, 166, 162, 0.2), transparent 28%),
+    radial-gradient(circle at 10% 95%, rgba(244, 181, 46, 0.18), transparent 28%),
+    linear-gradient(135deg, #f7fbff 0%, #eef5fb 100%);
+  color: var(--lp-text);
+  isolation: isolate;
+}
+
+.landing-root .hero-landing::before {
+  content: "";
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  right: -170px;
+  bottom: -250px;
+  border: 1px solid rgba(20, 166, 162, 0.25);
+  border-radius: 50%;
+  box-shadow: 0 0 0 42px rgba(20, 166, 162, 0.05), 0 0 0 84px rgba(20, 166, 162, 0.035);
+}
+
+.landing-root .hero-landing::after {
+  background: linear-gradient(115deg, transparent 30%, rgba(23, 60, 109, 0.04) 100%);
+}
+
+.landing-root .hero-inner {
+  width: min(1180px, 100%);
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+  gap: clamp(2rem, 6vw, 6rem);
+}
+
+.landing-root .hero-eyebrow {
+  color: var(--lp-blue);
+  background: rgba(20, 166, 162, 0.09);
+  border-color: rgba(20, 166, 162, 0.22);
+  letter-spacing: 0.11em;
+}
+
+.landing-root .hero-landing h1 {
+  max-width: 700px;
+  color: var(--lp-green);
+  font-size: clamp(2.8rem, 6vw, 5.4rem);
+  line-height: 1.03;
+  letter-spacing: -0.065em;
+  margin-bottom: 1.4rem;
+}
+
+.landing-root .hero-lead {
+  max-width: 600px;
+  color: #52647d;
+  font-size: clamp(1rem, 1.5vw, 1.18rem);
+  line-height: 1.8;
+}
+
+.landing-root .btn-lp {
+  min-height: 52px;
+  border-radius: 999px;
+  padding-inline: 1.6rem;
+}
+
+.landing-root .btn-lp-primary {
+  background: linear-gradient(135deg, var(--lp-green), var(--lp-green-mid));
+  box-shadow: 0 12px 28px rgba(23, 60, 109, 0.22);
+}
+
+.landing-root .btn-lp-primary:hover {
+  background: linear-gradient(135deg, #102d55, var(--lp-green));
+}
+
+.landing-root .btn-lp-ghost {
+  color: var(--lp-green);
+  background: #fff;
+  border: 1px solid #d7e2ee;
+}
+
+.landing-root .btn-lp-ghost:hover {
+  background: #eef6fb;
+  border-color: var(--lp-blue);
+}
+
+.landing-root .hero-quick a {
+  color: var(--lp-green);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(23, 60, 109, 0.25);
+  border-radius: 0;
+  padding: 0.35rem 0;
+}
+
+.landing-root .hero-quick a:hover {
+  color: var(--lp-blue);
+  background: transparent;
+  border-color: var(--lp-blue);
+}
+
+.landing-root .hero-card {
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border: 0;
+  border-radius: 30px;
+  background:
+    linear-gradient(145deg, rgba(35, 79, 132, 0.96), rgba(11, 33, 64, 0.98)),
+    var(--lp-green);
+  box-shadow: 0 28px 60px rgba(23, 60, 109, 0.24);
+  overflow: hidden;
+}
+
+.landing-root .hero-card::before {
+  content: "";
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  top: -120px;
+  right: -90px;
+  border: 1px solid rgba(244, 181, 46, 0.5);
+  border-radius: 50%;
+  box-shadow: 0 0 0 28px rgba(244, 181, 46, 0.06), 0 0 0 56px rgba(244, 181, 46, 0.04);
+}
+
+.landing-root .hero-card::after {
+  content: "SCHOLARSYNC";
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1rem;
+  color: rgba(255, 255, 255, 0.08);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+}
+
+.landing-root .hero-card h3,
+.landing-root .hero-stat {
+  position: relative;
+  z-index: 1;
+}
+
+.landing-root .hero-card h3 {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+}
+
+.landing-root .hero-stat-row {
+  gap: 0;
+}
+
+.landing-root .hero-stat {
+  padding: 1.15rem 1rem 1.15rem 0;
+  border-top-color: rgba(255, 255, 255, 0.14);
+}
+
+.landing-root .hero-stat strong {
+  color: #fff;
+  font-size: clamp(1.45rem, 3vw, 2rem);
+}
+
+.landing-root .hero-stat span {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.landing-root .trust-bar {
+  max-width: 100%;
+  padding: 1.1rem clamp(1.25rem, 6vw, 6rem);
+  justify-content: space-between;
+  background: #fff;
+  border-bottom: 1px solid #e2eaf2;
+  color: #718096;
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+}
+
+.landing-root .trust-bar i {
+  color: var(--lp-blue);
+}
+
+.landing-root .dest-section,
+.landing-root .pillars-section,
+.landing-root .features-section.lp,
+.landing-root .services-section,
+.landing-root .universities-section,
+.landing-root .destinations-section,
+.landing-root .process-section,
+.landing-root .resources-section {
+  width: min(1200px, 100%);
+  max-width: none;
+  margin-inline: auto;
+  padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 4vw, 3rem);
+}
+
+.landing-root .dest-section {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.landing-root .dest-block {
+  margin: 0;
+  padding: 1.7rem;
+  background: #fff;
+  border: 1px solid #e1eaf3;
+  border-radius: var(--lp-radius);
+  box-shadow: var(--lp-shadow);
+}
+
+.landing-root .dest-block h2 {
+  color: var(--lp-green);
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.landing-root .pill {
+  color: var(--lp-green);
+  background: #f6faff;
+  border-color: #dbe7f1;
+  box-shadow: none;
+}
+
+.landing-root .pill:hover {
+  border-color: var(--lp-blue);
+  color: var(--lp-blue);
+}
+
+.landing-root .pill-visa {
+  background: #fffaf0;
+  border-color: #f1ddb0;
+}
+
+.landing-root .pillars-section {
+  padding-top: 0;
+}
+
+.landing-root .pillars-head,
+.landing-root .section-header {
+  max-width: 700px;
+  margin-bottom: 2.5rem;
+}
+
+.landing-root .pillars-head h2,
+.landing-root .section-title {
+  color: var(--lp-green);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  letter-spacing: -0.045em;
+}
+
+.landing-root .section-description,
+.landing-root .partners-compact p {
+  color: #6b7b90;
+}
+
+.landing-root .pillars-grid,
+.landing-root .features-grid.lp {
+  gap: 1rem;
+}
+
+.landing-root .pillar-card,
+.landing-root .feature-card.lp,
+.landing-root .university-card,
+.landing-root .destination-card,
+.landing-root .resource-card {
+  border: 1px solid #e0e9f2;
+  border-radius: var(--lp-radius);
+  box-shadow: none;
+}
+
+.landing-root .pillar-card {
+  padding: 2rem 1.7rem;
+  background: #fff;
+}
+
+.landing-root .pillar-card .num {
+  border-radius: 14px;
+  background: #eaf8f7;
+  color: var(--lp-blue);
+}
+
+.landing-root .pillar-card h3,
+.landing-root .feature-card.lp h4,
+.landing-root .university-card h4,
+.landing-root .destination-info h4,
+.landing-root .resource-card h4 {
+  color: var(--lp-green);
+}
+
+.landing-root .features-section.lp,
+.landing-root .universities-section,
+.landing-root .process-section {
+  width: 100%;
+  background: #fff !important;
+}
+
+.landing-root .features-grid.lp,
+.landing-root .universities-grid {
+  width: min(1120px, 100%);
+  margin-inline: auto;
+}
+
+.landing-root .feature-card.lp {
+  padding: 2rem 1.25rem;
+  background: #f7faff;
+}
+
+.landing-root .feature-card.lp .feature-icon {
+  border-radius: 16px;
+  background: #eaf8f7;
+  color: var(--lp-blue);
+}
+
+.landing-root .services-section,
+.landing-root .destinations-section,
+.landing-root .resources-section {
+  width: 100%;
+}
+
+.landing-root .services-grid {
+  width: min(1200px, 100%);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.2rem;
+  padding: 0;
+}
+
+.landing-root .service-card {
+  min-height: 100%;
+  padding: 2rem 1.5rem 1.5rem;
+  border-radius: var(--lp-radius);
+  border-color: #dfe8f1;
+  box-shadow: 0 12px 30px rgba(23, 60, 109, 0.06);
+}
+
+.landing-root .service-card::before {
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--lp-blue), var(--lp-red));
+}
+
+.landing-root .card-icon {
+  border-radius: 16px;
+  background: #edf7fb;
+  color: var(--lp-blue);
+}
+
+.landing-root .card-title-group h3 {
+  color: var(--lp-green);
+}
+
+.landing-root .card-subtitle {
+  color: #b37a00;
+}
+
+.landing-root .apply-button,
+.landing-root .resume-modal__actions button:last-child {
+  background: linear-gradient(135deg, var(--lp-green), var(--lp-green-mid));
+}
+
+.landing-root .copy-button {
+  color: var(--lp-green);
+}
+
+.landing-root .process-section {
+  padding-inline: clamp(1.25rem, 4vw, 3rem);
+}
+
+.landing-root .process-steps {
+  width: min(920px, 100%);
+}
+
+.landing-root .process-step {
+  margin-bottom: 1.2rem;
+  padding: 1.4rem;
+  border: 1px solid #e1eaf3;
+  border-radius: var(--lp-radius);
+  background: #f8fbff;
+}
+
+.landing-root .step-number {
+  background: var(--lp-green);
+  border: 0;
+  box-shadow: 0 8px 18px rgba(23, 60, 109, 0.2);
+}
+
+.landing-root .step-content h4 {
+  color: var(--lp-green);
+}
+
+.landing-root .testimonials-section {
+  padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 4vw, 3rem);
+  background: linear-gradient(135deg, #102d55, #173c6d) !important;
+}
+
+.landing-root .testimonial-card {
+  min-width: min(360px, 86vw);
+  border-radius: var(--lp-radius);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.landing-root .author-achievement {
+  color: #ffe29a;
+}
+
+.landing-root .partners-section {
+  width: 100%;
+  background: #f4f7fb;
+}
+
+.landing-root .partners-compact {
+  max-width: 780px;
+}
+
+.landing-root .contact-strip-lp {
+  padding: clamp(3.5rem, 7vw, 6rem) clamp(1.25rem, 4vw, 3rem);
+  background: linear-gradient(135deg, var(--lp-green), #0b2140);
+}
+
+.landing-root .contact-item-lp {
+  min-height: 112px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.landing-root .contact-item-lp a {
+  color: #fff;
+}
+
+.landing-root .resources-section {
+  background: #f4f7fb !important;
+}
+
+.landing-root .resource-card {
+  background: #fff;
+}
+
+.landing-root .resource-icon {
+  background: #eaf8f7;
+  color: var(--lp-blue);
+}
+
+.landing-root .resource-link {
+  color: var(--lp-green-mid);
+}
+
+.landing-root .cta-section {
+  padding: clamp(4rem, 8vw, 6rem) 1.25rem;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(20, 166, 162, 0.3), transparent 24%),
+    linear-gradient(135deg, #0b2140, #173c6d) !important;
+}
+
+.landing-root .cta-button {
+  border-radius: 999px;
+}
+
+@media (max-width: 899px) {
+  .landing-root .hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-root .hero-card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 680px) {
+  .landing-root .hero-landing {
+    min-height: auto;
+    padding-top: 3rem;
+  }
+
+  .landing-root .hero-landing h1 {
+    font-size: clamp(2.4rem, 12vw, 4rem);
+  }
+
+  .landing-root .trust-bar {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .landing-root .dest-section {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-root .process-step {
+    padding: 1.1rem;
+  }
+}
 </style>
 
 <div class="landing-root">
@@ -2162,8 +2674,8 @@ body.card-only-mode {
     <div class="contact-grid-lp">
       <div class="contact-item-lp">
         <small><?php echo $current_lang === 'fr' ? 'Téléphone' : 'Phone'; ?></small>
-        <a href="tel:+250788284544"><?php echo htmlspecialchars(it('contact_phone')); ?></a>
-        <a href="tel:+250789515593" class="contact-phone-second"><?php echo htmlspecialchars(it('contact_phone2')); ?></a>
+        <a href="tel:+14313059527"><?php echo htmlspecialchars(it('contact_phone')); ?></a>
+        <a href="tel:+14313059527" class="contact-phone-second"><?php echo htmlspecialchars(it('contact_phone2')); ?></a>
       </div>
       <div class="contact-item-lp">
         <small>Email</small>
