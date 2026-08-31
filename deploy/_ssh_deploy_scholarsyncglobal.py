@@ -115,7 +115,17 @@ def main() -> None:
             write_remote_env(sftp)
         finally:
             sftp.close()
-        command = f"cd {shlex.quote(REMOTE_ROOT)} && composer install --no-dev --no-interaction --optimize-autoloader"
+        command = (
+            f"cd {shlex.quote(REMOTE_ROOT)} && "
+            "if command -v composer >/dev/null 2>&1; then "
+            "composer install --no-dev --no-interaction --optimize-autoloader; "
+            "elif [ -f vendor/autoload.php ]; then "
+            "echo 'Composer unavailable; using the deployed vendor directory'; "
+            "else "
+            "echo 'Composer is unavailable and vendor/autoload.php is missing' >&2; "
+            "exit 1; "
+            "fi"
+        )
         _, stdout, stderr = client.exec_command(command, timeout=600)
         exit_code = stdout.channel.recv_exit_status()
         if exit_code != 0:
