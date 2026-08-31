@@ -53,8 +53,29 @@ $appRoot = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? '')),
         }
         body {
             height: 100%;
+            width: 100%;
             margin: 0;
             overflow: hidden;
+        }
+
+        /* The report is also rendered inside admin-dashboard.php. Keep the
+           shell and both columns at the iframe's full available width. */
+        body > .flex {
+            width: 100%;
+            max-width: none;
+            min-width: 0;
+        }
+        body > .flex > aside,
+        body > .flex > main {
+            min-width: 0;
+        }
+        body > .flex > aside {
+            flex: 0 0 24rem;
+            width: 24rem;
+        }
+        body > .flex > main {
+            flex: 1 1 auto;
+            width: auto;
         }
 
         /* Study choice add form — Select2, full width per column */

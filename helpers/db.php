@@ -1,22 +1,11 @@
 <?php
-// db.php
+declare(strict_types=1);
 
-$host = 'localhost';  // Database host
-$user = 'root';       // Database username
-$pass = '';           // Database password (default: empty for XAMPP)
-$dbname = 'scholarsyncglobal';   // Change this to your actual database name
-
-// Create connection
-$conn = new mysqli($host, $user, $pass, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
-// Set charset to avoid charset issues (utf8mb4 is best for supporting all characters)
-$conn->set_charset("utf8mb4");
-
-// Force UTC timezone for this session
-$conn->query("SET time_zone = '+00:00'");
-?>
+/**
+ * Backward-compatible database include for API/helper files.
+ *
+ * Keep this path pointed at the application's single database bootstrap.
+ * A second hardcoded connection here caused API requests to use root with
+ * no password and return an HTML database error instead of JSON.
+ */
+require_once dirname(__DIR__) . '/db.php';

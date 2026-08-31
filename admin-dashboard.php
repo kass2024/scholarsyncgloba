@@ -723,6 +723,7 @@ if (!empty($showStaffPersonalDashboard) && strtolower($role) !== 'catholic unive
     .sidebar-section {
       padding: 20px 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      width: 100%;
     }
 
     .sidebar-section:last-child {
@@ -741,6 +742,9 @@ if (!empty($showStaffPersonalDashboard) && strtolower($role) !== 'catholic unive
     .sidebar-link {
       display: flex;
       align-items: center;
+      width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
       padding: 13px 20px;
       border-radius: 0 12px 12px 0;
       color: rgba(255, 255, 255, 0.88);
@@ -763,6 +767,7 @@ if (!empty($showStaffPersonalDashboard) && strtolower($role) !== 'catholic unive
     .sidebar-link i {
       font-size: 1.1rem;
       margin-right: 12px;
+      flex: 0 0 auto;
       width: 24px;
       text-align: center;
       opacity: 0.9;
@@ -770,6 +775,7 @@ if (!empty($showStaffPersonalDashboard) && strtolower($role) !== 'catholic unive
 
     .sidebar-link .arrow {
       margin-left: auto;
+      flex: 0 0 auto;
       transition: transform 0.3s;
       font-size: 0.9rem;
       opacity: 0.7;
@@ -780,6 +786,8 @@ if (!empty($showStaffPersonalDashboard) && strtolower($role) !== 'catholic unive
     }
 
     .sidebar-submenu {
+      width: 100%;
+      min-width: 0;
       background: rgba(0, 0, 0, 0.15);
       display: none;
       animation: fadeIn 0.3s ease;
@@ -797,6 +805,9 @@ if (!empty($showStaffPersonalDashboard) && strtolower($role) !== 'catholic unive
     .sidebar-submenu a {
       display: flex;
       align-items: center;
+      width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
       padding: 12px 20px 12px 56px;
       color: rgba(255, 255, 255, 0.8);
       text-decoration: none;
@@ -830,12 +841,15 @@ if (!empty($showStaffPersonalDashboard) && strtolower($role) !== 'catholic unive
     .sidebar-submenu a i {
       font-size: 0.8rem;
       margin-right: 8px;
+      flex: 0 0 auto;
       width: 16px;
     }
 
     /* ========== MAIN CONTENT ========== */
     .main-content {
       margin-left: 268px;
+      width: calc(100% - 268px);
+      min-width: 0;
       min-height: 100vh;
       transition: margin-left 0.3s ease;
       display: flex;
@@ -1013,6 +1027,8 @@ if (!empty($showStaffPersonalDashboard) && strtolower($role) !== 'catholic unive
     /* ========== CONTENT AREA ========== */
     .content-wrapper {
       flex: 1;
+      width: 100%;
+      min-width: 0;
       padding: 28px 32px 40px;
       background: transparent;
     }
@@ -1020,10 +1036,16 @@ if (!empty($showStaffPersonalDashboard) && strtolower($role) !== 'catholic unive
     /* Dashboard view styling */
     #dashboard-view {
       display: block;
+      width: 100%;
+      min-width: 0;
     }
 
     #content-frame {
+      display: block;
+      flex: 1 1 auto;
       width: 100%;
+      min-width: 0;
+      max-width: none;
       height: calc(100vh - 100px);
       border: none;
       border-radius: 12px;
@@ -1716,6 +1738,7 @@ if (!empty($showStaffPersonalDashboard) && strtolower($role) !== 'catholic unive
       
       .main-content {
         margin-left: 0 !important;
+        width: 100%;
       }
       
       .mobile-toggle {
@@ -1851,6 +1874,8 @@ if (!empty($showStaffPersonalDashboard) && strtolower($role) !== 'catholic unive
 
     /* ========== SCHOLARSYNC GLOBAL DASHBOARD REFRESH ========== */
     .content-wrapper {
+      width: 100%;
+      min-width: 0;
       max-width: 1600px;
       margin: 0 auto;
     }
@@ -3738,6 +3763,16 @@ if (!empty($showStaffPersonalDashboard) && strtolower($role) !== 'catholic unive
     // Main JavaScript functionality
     
     // Sidebar functionality
+    // The sidebar uses navigation-looking anchors for menu controls. Stop
+    // their default hash navigation so expanding a menu never scrolls or
+    // changes the dashboard URL, while preserving the inline handlers below.
+    document.addEventListener('click', function(event) {
+      const target = event.target.closest('.sidebar-link[href^="#"], .sidebar-submenu a[href="#"]');
+      if (target) {
+        event.preventDefault();
+      }
+    }, true);
+
     function toggleMobileSidebar() {
       document.getElementById('sidebar').classList.toggle('show');
     }
@@ -3745,6 +3780,9 @@ if (!empty($showStaffPersonalDashboard) && strtolower($role) !== 'catholic unive
     function toggleSidebarMenu(menuId) {
       const link = document.querySelector(`[href="#${menuId}"]`);
       const submenu = document.getElementById(`submenu_${menuId}`);
+      if (!link || !submenu) {
+        return false;
+      }
       
       // Close other submenus
       document.querySelectorAll('.sidebar-submenu').forEach(menu => {
@@ -3814,9 +3852,9 @@ if (!empty($showStaffPersonalDashboard) && strtolower($role) !== 'catholic unive
       contentFrame.src = url;
       
       // Show iframe and hide dashboard
+      contentFrame.style.display = 'block';
+      dashboardView.style.display = 'none';
       setTimeout(() => {
-        contentFrame.style.display = 'block';
-        dashboardView.style.display = 'none';
         document.getElementById('loadingSpinner').style.display = 'none';
         
         // Update page title
@@ -3839,8 +3877,13 @@ if (!empty($showStaffPersonalDashboard) && strtolower($role) !== 'catholic unive
       // Add custom styles to loaded content if needed
       try {
         const iframeDoc = this.contentDocument || this.contentWindow.document;
+        iframeDoc.documentElement.style.width = '100%';
+        iframeDoc.body.style.width = '100%';
+        iframeDoc.body.style.margin = '0';
         const style = iframeDoc.createElement('style');
         style.textContent = `
+          html, body { width: 100%; max-width: none; min-width: 0; }
+          body > .flex { width: 100%; max-width: none; min-width: 0; }
           body { font-family: 'Segoe UI', system-ui, sans-serif; }
           .container { max-width: 1200px; }
           .card { border-radius: 10px; }
