@@ -806,22 +806,22 @@ $universities = [
 
 $study_abroad_countries = ['Canada', 'USA', 'Germany', 'Turkey', 'Ireland', 'Netherlands', 'Poland', 'India', 'China', 'South Korea'];
 $visa_countries = ['Canada', 'USA', 'Germany', 'Turkey', 'China', 'India', 'Azerbaijan', 'Russia', 'Poland', 'Armenia', 'UK', 'Dubai — U.A.E'];
-$country_flags = [
-    'Canada' => '🇨🇦',
-    'USA' => '🇺🇸',
-    'Germany' => '🇩🇪',
-    'Turkey' => '🇹🇷',
-    'Ireland' => '🇮🇪',
-    'Netherlands' => '🇳🇱',
-    'Poland' => '🇵🇱',
-    'India' => '🇮🇳',
-    'China' => '🇨🇳',
-    'South Korea' => '🇰🇷',
-    'Azerbaijan' => '🇦🇿',
-    'Russia' => '🇷🇺',
-    'Armenia' => '🇦🇲',
-    'UK' => '🇬🇧',
-    'Dubai — U.A.E' => '🇦🇪',
+$country_flag_codes = [
+    'Canada' => 'ca',
+    'USA' => 'us',
+    'Germany' => 'de',
+    'Turkey' => 'tr',
+    'Ireland' => 'ie',
+    'Netherlands' => 'nl',
+    'Poland' => 'pl',
+    'India' => 'in',
+    'China' => 'cn',
+    'South Korea' => 'kr',
+    'Azerbaijan' => 'az',
+    'Russia' => 'ru',
+    'Armenia' => 'am',
+    'UK' => 'gb',
+    'Dubai — U.A.E' => 'ae',
 ];
 
 // Define destinations
@@ -2371,7 +2371,19 @@ body:has(.landing-root) {
   max-width: calc(100% - 72px);
 }
 
+.landing-root .dest-section {
+  width: 100%;
+  max-width: none;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.landing-root .dest-section > .dest-block {
+  width: 100%;
+  min-width: 0;
+}
+
 .landing-root .pill-row {
+  width: 100%;
   gap: 0.65rem;
 }
 
@@ -2391,17 +2403,14 @@ body:has(.landing-root) {
 }
 
 .landing-root .country-flag {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   width: 28px;
-  height: 28px;
+  height: 20px;
   flex: 0 0 28px;
-  border-radius: 50%;
+  border-radius: 4px;
   background: #fff;
   box-shadow: 0 2px 7px rgba(23, 60, 109, 0.12);
-  font-size: 1.05rem;
-  line-height: 1;
+  object-fit: cover;
 }
 
 .landing-root .dest-block h2::before {
@@ -2543,7 +2552,7 @@ body:has(.landing-root) {
     <h2 id="study-dest-heading"><?php echo htmlspecialchars(it('study_dest_title')); ?></h2>
     <div class="pill-row">
       <?php foreach ($study_abroad_countries as $c): ?>
-      <span class="pill"><span class="country-flag" aria-hidden="true"><?php echo $country_flags[$c] ?? '🌍'; ?></span><span><?php echo htmlspecialchars($c); ?></span></span>
+      <span class="pill"><img class="country-flag" src="https://flagcdn.com/w40/<?php echo htmlspecialchars($country_flag_codes[$c] ?? 'un', ENT_QUOTES, 'UTF-8'); ?>.png" alt="" loading="lazy"><span><?php echo htmlspecialchars($c); ?></span></span>
       <?php endforeach; ?>
     </div>
   </div>
@@ -2551,7 +2560,7 @@ body:has(.landing-root) {
     <h2 id="visa-dest-heading"><?php echo htmlspecialchars(it('visa_dest_title')); ?></h2>
     <div class="pill-row">
       <?php foreach ($visa_countries as $c): ?>
-      <span class="pill pill-visa"><span class="country-flag" aria-hidden="true"><?php echo $country_flags[$c] ?? '🌍'; ?></span><span><?php echo htmlspecialchars($c); ?></span></span>
+      <span class="pill pill-visa"><img class="country-flag" src="https://flagcdn.com/w40/<?php echo htmlspecialchars($country_flag_codes[$c] ?? 'un', ENT_QUOTES, 'UTF-8'); ?>.png" alt="" loading="lazy"><span><?php echo htmlspecialchars($c); ?></span></span>
       <?php endforeach; ?>
     </div>
   </div>
