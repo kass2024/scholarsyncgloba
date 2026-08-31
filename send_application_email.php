@@ -27,9 +27,7 @@ error_reporting(E_ALL);
    BOOTSTRAP
 ===================================================== */
 require_once __DIR__ . '/db.php';
-require_once __DIR__ . '/PHPMailer/src/PHPMailer.php';
-require_once __DIR__ . '/PHPMailer/src/SMTP.php';
-require_once __DIR__ . '/PHPMailer/src/Exception.php';
+require_once __DIR__ . '/helpers/mailer.php';
 
 /* =====================================================
    LOGGER
@@ -178,20 +176,9 @@ try {
     }
 
     /* ================= MAILER ================= */
-    $mail = new PHPMailer(true);
-    $mail->isSMTP();
-    $mail->Host = 'scholarsyncglobal.ca';
-    $mail->SMTPAuth = true;
-    $mail->Username = 'infos@scholarsyncglobal.ca';
-    $mail->Password = getenv('SMTP_PASSWORD') ?: '';
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-    $mail->Port = 465;
-
-    $mail->CharSet = 'UTF-8';
-    $mail->isHTML(true);
-    $mail->setFrom('infos@scholarsyncglobal.ca', 'ScholarSync Global');
-
-    $mail->SMTPDebug = 0;
+    // Use the same environment-backed SMTP setup as application reminders
+    // and all other ScholarSync Global mailers.
+    $mail = app_mailer('ScholarSync Global');
 
     /* ================= ADMIN EMAIL ================= */
     $mail->addAddress('infos@scholarsyncglobal.ca');
@@ -269,16 +256,7 @@ try {
 
     /* ================= STUDENT EMAIL ================= */
     if ($studentEmail !== '') {
-        $mail = new PHPMailer(true);
-        $mail->isSMTP();
-        $mail->Host = 'scholarsyncglobal.ca';
-        $mail->SMTPAuth = true;
-        $mail->Username = 'infos@scholarsyncglobal.ca';
-        $mail->Password = getenv('SMTP_PASSWORD') ?: '';
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-        $mail->Port = 465;
-        $mail->isHTML(true);
-        $mail->setFrom('infos@scholarsyncglobal.ca', 'ScholarSync Global');
+        $mail = app_mailer('ScholarSync Global');
 
         $mail->addAddress($studentEmail, $studentName);
         $mail->Subject = 'Application Submitted';

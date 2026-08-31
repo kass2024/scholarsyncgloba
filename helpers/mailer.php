@@ -34,6 +34,9 @@ function app_mailer(?string $fromNameOverride = null): PHPMailer
     if ($password === '') {
         $password = xander_env_get_from_dotenv_file('SMTP_PASSWORD');
     }
+    if ($password === '') {
+        throw new RuntimeException('SMTP_PASSWORD is not configured.');
+    }
     $portStr = xander_env_get('SMTP_PORT');
     $port = $portStr !== '' ? (int) $portStr : 465;
     $fromEmail = xander_env_get('SMTP_FROM_EMAIL') ?: $username;
