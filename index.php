@@ -806,6 +806,23 @@ $universities = [
 
 $study_abroad_countries = ['Canada', 'USA', 'Germany', 'Turkey', 'Ireland', 'Netherlands', 'Poland', 'India', 'China', 'South Korea'];
 $visa_countries = ['Canada', 'USA', 'Germany', 'Turkey', 'China', 'India', 'Azerbaijan', 'Russia', 'Poland', 'Armenia', 'UK', 'Dubai — U.A.E'];
+$country_flags = [
+    'Canada' => '🇨🇦',
+    'USA' => '🇺🇸',
+    'Germany' => '🇩🇪',
+    'Turkey' => '🇹🇷',
+    'Ireland' => '🇮🇪',
+    'Netherlands' => '🇳🇱',
+    'Poland' => '🇵🇱',
+    'India' => '🇮🇳',
+    'China' => '🇨🇳',
+    'South Korea' => '🇰🇷',
+    'Azerbaijan' => '🇦🇿',
+    'Russia' => '🇷🇺',
+    'Armenia' => '🇦🇲',
+    'UK' => '🇬🇧',
+    'Dubai — U.A.E' => '🇦🇪',
+];
 
 // Define destinations
 $destinations = [
@@ -2303,6 +2320,153 @@ body.card-only-mode {
     padding: 1.1rem;
   }
 }
+
+/* Final polish: balanced above-the-fold composition and flag chips. */
+body:has(.landing-root) {
+  overflow-x: hidden;
+}
+
+.landing-root .hero-landing {
+  min-height: 560px;
+  padding-top: clamp(3rem, 6vw, 5rem);
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.landing-root .hero-inner {
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.landing-root .hero-landing h1 {
+  font-size: clamp(2.45rem, 5vw, 4.35rem);
+  max-width: 620px;
+}
+
+.landing-root .hero-card {
+  min-height: 330px;
+}
+
+.landing-root .hero-card-seal {
+  position: absolute;
+  top: 1.6rem;
+  right: 1.7rem;
+  z-index: 2;
+  width: 58px;
+  height: 58px;
+  padding: 5px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(3, 16, 37, 0.2);
+}
+
+.landing-root .hero-card-seal img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.landing-root .hero-card h3 {
+  max-width: calc(100% - 72px);
+}
+
+.landing-root .pill-row {
+  gap: 0.65rem;
+}
+
+.landing-root .pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 42px;
+  padding: 0.5rem 0.85rem 0.5rem 0.6rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+  transition: transform 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.landing-root .pill:hover {
+  transform: translateY(-2px);
+}
+
+.landing-root .country-flag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 7px rgba(23, 60, 109, 0.12);
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.landing-root .dest-block h2::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin: 0 0.55rem 0.1rem 0;
+  border-radius: 50%;
+  background: var(--lp-blue);
+  box-shadow: 0 0 0 5px rgba(20, 166, 162, 0.12);
+}
+
+.landing-root .dest-block:nth-child(2) h2::before {
+  background: var(--lp-red);
+  box-shadow: 0 0 0 5px rgba(244, 181, 46, 0.16);
+}
+
+.landing-root .destination-card {
+  align-items: flex-start;
+  padding: 1.35rem;
+}
+
+.landing-root .destination-flag {
+  display: inline-flex;
+  width: 54px;
+  height: 54px;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 54px;
+  border-radius: 17px;
+  background: #eef7fb;
+  font-size: 2rem;
+  box-shadow: inset 0 0 0 1px rgba(20, 166, 162, 0.1);
+}
+
+@media (max-width: 680px) {
+  .landing-root .hero-landing {
+    padding-top: 2.3rem;
+    padding-bottom: 3rem;
+  }
+
+  .landing-root .hero-landing h1 {
+    font-size: clamp(2.35rem, 12vw, 3.55rem);
+  }
+
+  .landing-root .hero-card {
+    border-radius: 24px;
+  }
+
+  .landing-root .hero-card-seal {
+    top: 1.25rem;
+    right: 1.25rem;
+  }
+
+  .landing-root .dest-block {
+    padding: 1.25rem;
+  }
+
+  .landing-root .pill {
+    min-height: 39px;
+    padding-right: 0.7rem;
+    font-size: 0.78rem;
+  }
+}
 </style>
 
 <div class="landing-root">
@@ -2327,6 +2491,9 @@ body.card-only-mode {
       </div>
     </div>
     <div class="hero-card">
+      <div class="hero-card-seal">
+        <img src="assets/brand/scholarsync-dashboard-logo.png" alt="ScholarSync Global">
+      </div>
       <h3><?php echo htmlspecialchars(it('trust_reply')); ?> · <?php echo htmlspecialchars(it('trust_support')); ?></h3>
       <div class="hero-stat-row">
         <div class="hero-stat">
@@ -2376,7 +2543,7 @@ body.card-only-mode {
     <h2 id="study-dest-heading"><?php echo htmlspecialchars(it('study_dest_title')); ?></h2>
     <div class="pill-row">
       <?php foreach ($study_abroad_countries as $c): ?>
-      <span class="pill"><?php echo htmlspecialchars($c); ?></span>
+      <span class="pill"><span class="country-flag" aria-hidden="true"><?php echo $country_flags[$c] ?? '🌍'; ?></span><span><?php echo htmlspecialchars($c); ?></span></span>
       <?php endforeach; ?>
     </div>
   </div>
@@ -2384,7 +2551,7 @@ body.card-only-mode {
     <h2 id="visa-dest-heading"><?php echo htmlspecialchars(it('visa_dest_title')); ?></h2>
     <div class="pill-row">
       <?php foreach ($visa_countries as $c): ?>
-      <span class="pill pill-visa"><?php echo htmlspecialchars($c); ?></span>
+      <span class="pill pill-visa"><span class="country-flag" aria-hidden="true"><?php echo $country_flags[$c] ?? '🌍'; ?></span><span><?php echo htmlspecialchars($c); ?></span></span>
       <?php endforeach; ?>
     </div>
   </div>
