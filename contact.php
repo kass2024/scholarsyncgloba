@@ -29,22 +29,22 @@ $contact_translations = [
         // Office Details (primary)
         'sanfrancisco_title' => 'Rwanda — Kigali',
         'sanfrancisco_address' => 'Town Center Building (near Simba Supermarket), 2nd Floor, Door: F2B-022C, Nyarugenge',
-        'sanfrancisco_phone' => '+250 788 284 544 · +250 789 515 593',
+        'sanfrancisco_phone' => '+14313059527',
         'sanfrancisco_hours' => 'Email: infos@scholarsyncglobal.ca · We reply within 24 hours',
         
         'muhanga_title' => 'Regional inquiries',
         'muhanga_address' => 'Town Center Building (near Simba Supermarket), 2nd Floor, Door: F2B-022C, Nyarugenge',
-        'muhanga_phone' => '+250 788 284 544 · +250 789 515 593',
+        'muhanga_phone' => '+14313059527',
         'muhanga_hours' => 'infos@scholarsyncglobal.ca',
         
         'nairobi_title' => 'Nairobi Office',
         'nairobi_address' => 'Nairobi, Kenya',
-        'nairobi_phone' => '+254 744 111 121',
+        'nairobi_phone' => '+14313059527',
         'nairobi_hours' => 'Mon-Fri: 9:00 AM - 5:00 PM EAT',
         
         'kampala_title' => 'Kampala Office',
         'kampala_address' => 'Kampala, Uganda',
-        'kampala_phone' => '+256 767 418 006',
+        'kampala_phone' => '+14313059527',
         'kampala_hours' => 'Mon-Fri: 9:00 AM - 5:00 PM EAT',
         
         // Contact Form
@@ -118,22 +118,22 @@ $contact_translations = [
         // Office Details
         'sanfrancisco_title' => 'Rwanda — Kigali',
         'sanfrancisco_address' => 'Town Center Building (près de Simba Supermarket), 2e étage, Porte : F2B-022C, Nyarugenge',
-        'sanfrancisco_phone' => '+250 788 284 544 · +250 789 515 593',
+        'sanfrancisco_phone' => '+14313059527',
         'sanfrancisco_hours' => 'Courriel : infos@scholarsyncglobal.ca · Réponse sous 24 h',
         
         'muhanga_title' => 'Demandes régionales',
         'muhanga_address' => 'Town Center Building (près de Simba Supermarket), 2e étage, Porte : F2B-022C, Nyarugenge',
-        'muhanga_phone' => '+250 788 284 544 · +250 789 515 593',
+        'muhanga_phone' => '+14313059527',
         'muhanga_hours' => 'infos@scholarsyncglobal.ca',
         
         'nairobi_title' => 'Bureau de Nairobi',
         'nairobi_address' => 'Nairobi, Kenya',
-        'nairobi_phone' => '+254 744 111 121',
+        'nairobi_phone' => '+14313059527',
         'nairobi_hours' => 'Lun-Ven: 9:00 AM - 5:00 PM EAT',
         
         'kampala_title' => 'Bureau de Kampala',
         'kampala_address' => 'Kampala, Uganda',
-        'kampala_phone' => '+256 767 418 006',
+        'kampala_phone' => '+14313059527',
         'kampala_hours' => 'Lun-Ven: 9:00 AM - 5:00 PM EAT',
         
         // Contact Form
@@ -1690,9 +1690,9 @@ body {
       office.address_key === 'nairobi_address' ? 'Nairobi, Kenya' : 'Kampala, Uganda';
     
     document.getElementById('infoPhone').textContent = 
-      office.phone_key === 'sanfrancisco_phone' ? '+1 (450) 390-8614' :
-      office.phone_key === 'muhanga_phone' ? '+250 788 242 069' :
-      office.phone_key === 'nairobi_phone' ? '+254 744 111 121' : '+256 767 418 006';
+      office.phone_key === 'sanfrancisco_phone' ? '+14313059527' :
+      office.phone_key === 'muhanga_phone' ? '+14313059527' :
+      office.phone_key === 'nairobi_phone' ? '+14313059527' : '+14313059527';
     
     document.getElementById('infoHours').textContent = 
       office.hours_key === 'sanfrancisco_hours' ? 'Mon-Fri: 9:00 AM - 6:00 PM PST' :

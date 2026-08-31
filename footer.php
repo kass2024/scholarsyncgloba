@@ -83,18 +83,18 @@ $footer_translations = [
         'main_region' => 'Rwanda — Kigali',
         'main_office' => 'ScholarSync Global',
         'main_address' => 'Town Center Building (near Simba Supermarket), 2nd Floor, Door: F2B-022C, Nyarugenge',
-        'main_phone' => '+250 788 284 544',
-        'main_phone2' => '+250 789 515 593',
-        'us_phone' => '+250 788 284 544',
+        'main_phone' => '+14313059527',
+        'main_phone2' => '+14313059527',
+        'us_phone' => '+14313059527',
         'us_office' => 'ScholarSync Global',
         'us_address' => 'Town Center Building (near Simba Supermarket), 2nd Floor, Door: F2B-022C, Nyarugenge',
-        'rwanda_phone' => '+250 788 284 544',
+        'rwanda_phone' => '+14313059527',
         'rwanda_office' => 'Rwanda — Kigali',
         'rwanda_address' => 'Town Center Building (near Simba Supermarket), 2nd Floor, Door: F2B-022C, Nyarugenge',
-        'kenya_phone' => '+250 788 284 544',
+        'kenya_phone' => '+14313059527',
         'kenya_office' => 'ScholarSync Global',
         'kenya_address' => 'Town Center Building (near Simba Supermarket), 2nd Floor, Door: F2B-022C, Nyarugenge',
-        'uganda_phone' => '+250 789 515 593',
+        'uganda_phone' => '+14313059527',
         'uganda_office' => 'ScholarSync Global',
         'uganda_address' => 'Town Center Building (near Simba Supermarket), 2nd Floor, Door: F2B-022C, Nyarugenge',
         
@@ -183,18 +183,18 @@ $footer_translations = [
         'main_region' => 'Rwanda — Kigali',
         'main_office' => 'ScholarSync Global',
         'main_address' => 'Town Center Building (près de Simba Supermarket), 2e étage, Porte : F2B-022C, Nyarugenge',
-        'main_phone' => '+250 788 284 544',
-        'main_phone2' => '+250 789 515 593',
-        'us_phone' => '+250 788 284 544',
+        'main_phone' => '+14313059527',
+        'main_phone2' => '+14313059527',
+        'us_phone' => '+14313059527',
         'us_office' => 'ScholarSync Global',
         'us_address' => 'Town Center Building (près de Simba Supermarket), 2e étage, Porte : F2B-022C, Nyarugenge',
-        'rwanda_phone' => '+250 788 284 544',
+        'rwanda_phone' => '+14313059527',
         'rwanda_office' => 'Rwanda — Kigali',
         'rwanda_address' => 'Town Center Building (près de Simba Supermarket), 2e étage, Porte : F2B-022C, Nyarugenge',
-        'kenya_phone' => '+250 788 284 544',
+        'kenya_phone' => '+14313059527',
         'kenya_office' => 'ScholarSync Global',
         'kenya_address' => 'Town Center Building (près de Simba Supermarket), 2e étage, Porte : F2B-022C, Nyarugenge',
-        'uganda_phone' => '+250 789 515 593',
+        'uganda_phone' => '+14313059527',
         'uganda_office' => 'ScholarSync Global',
         'uganda_address' => 'Town Center Building (près de Simba Supermarket), 2e étage, Porte : F2B-022C, Nyarugenge',
         
@@ -245,7 +245,7 @@ if (!function_exists('ft')) {
 // Configuration - KEEPING ALL ORIGINAL SETTINGS
 $chat_enabled = true;
 /** Live WhatsApp chatbot (Follow Us icon opens chat to this number). */
-$whatsapp_number = '14313404830';
+$whatsapp_number = '14313059527';
 $current_year = date('Y');
 $site_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
 
@@ -260,7 +260,7 @@ $social_links = [
     'tiktok' => 'https://www.tiktok.com/@scholarsyncglobal',
     'youtube' => 'https://youtube.com/@scholarsyncglobal',
     'x' => 'https://x.com/scholarsyncglobal',
-    'whatsapp' => 'https://wa.me/14313404830',
+    'whatsapp' => 'https://wa.me/14313059527',
 ];
 
 // Services list (keeping ALL original services)
@@ -303,47 +303,44 @@ $footer_contact_offices = [
     [
         'label' => ['en' => 'Rwanda — Kigali', 'fr' => 'Rwanda — Kigali'],
         'emails' => ['infos@scholarsyncglobal.ca'],
-        'phones' => [['d' => '+250 788 284 544', 't' => '+250788284544'], ['d' => '+250 789 515 593', 't' => '+250789515593']],
+        'phones' => [['d' => '+14313059527', 't' => '+14313059527']],
     ],
     [
         'label' => ['en' => 'Rwanda — Musanze', 'fr' => 'Rwanda — Musanze'],
         'emails' => ['infos@scholarsyncglobal.ca'],
         'phones' => [
-            ['d' => '+250 785 569 141', 't' => '+250785569141'],
-            ['d' => '+250 780 320 970', 't' => '+250780320970'],
-            ['d' => '+250 782 102 752', 't' => '+250782102752'],
-            ['d' => '+250 783 314 265', 't' => '+250783314265'],
+            ['d' => '+14313059527', 't' => '+14313059527'],
         ],
     ],
     [
         'label' => ['en' => 'Kenya', 'fr' => 'Kenya'],
         'emails' => ['infos@scholarsyncglobal.ca'],
-        'phones' => [['d' => '+254 798 854 944', 't' => '+254798854944'], ['d' => '+254 745 277 231', 't' => '+254745277231']],
+        'phones' => [['d' => '+14313059527', 't' => '+14313059527']],
     ],
     [
         'label' => ['en' => 'Ghana', 'fr' => 'Ghana'],
         'emails' => ['infos@scholarsyncglobal.ca'],
-        'phones' => [['d' => '+233 59 340 0478', 't' => '+233593400478']],
+        'phones' => [['d' => '+14313059527', 't' => '+14313059527']],
     ],
     [
         'label' => ['en' => 'Zambia', 'fr' => 'Zambie'],
         'emails' => ['infos@scholarsyncglobal.ca'],
-        'phones' => [['d' => '+260 972 968 285', 't' => '+260972968285']],
+        'phones' => [['d' => '+14313059527', 't' => '+14313059527']],
     ],
     [
         'label' => ['en' => 'Tanzania', 'fr' => 'Tanzanie'],
         'emails' => ['infos@scholarsyncglobal.ca'],
-        'phones' => [['d' => '+1 263 588 5750', 't' => '+12635885750'], ['d' => '+1 438 290 6688', 't' => '+14382906688']],
+        'phones' => [['d' => '+14313059527', 't' => '+14313059527']],
     ],
     [
         'label' => ['en' => 'South Korea', 'fr' => 'Corée du Sud'],
         'emails' => [],
-        'phones' => [['d' => '+82 10-9632-1984', 't' => '+821096321984']],
+        'phones' => [['d' => '+14313059527', 't' => '+14313059527']],
     ],
     [
         'label' => ['en' => 'Canada', 'fr' => 'Canada'],
         'emails' => ['infos@scholarsyncglobal.ca'],
-        'phones' => [['d' => '+1 (450) 823-1811', 't' => '+14508231811']],
+        'phones' => [['d' => '+14313059527', 't' => '+14313059527']],
     ],
 ];
 
@@ -1765,11 +1762,11 @@ if ($pcvc_docroot && $pcvc_appdir) {
                     <p class="footer-contact-quick">
                         <a href="mailto:<?php echo htmlspecialchars(ft('email_address')); ?>"><?php echo htmlspecialchars(ft('email_address')); ?></a>
                         <span class="footer-contact-quick-sep" aria-hidden="true"> · </span>
-                        <a href="tel:+14508231811">+1 (450) 823-1811</a>
+                        <a href="tel:+14313059527">+14313059527</a>
                         <span class="footer-contact-quick-sep" aria-hidden="true"> · </span>
-                        <a href="tel:+250788284544"><?php echo htmlspecialchars(ft('main_phone')); ?></a>
+                        <a href="tel:+14313059527"><?php echo htmlspecialchars(ft('main_phone')); ?></a>
                         <span class="footer-contact-quick-sep" aria-hidden="true"> · </span>
-                        <a href="tel:+250789515593"><?php echo htmlspecialchars(ft('main_phone2')); ?></a>
+                        <a href="tel:+14313059527"><?php echo htmlspecialchars(ft('main_phone2')); ?></a>
                     </p>
                     <div class="footer-social-links" aria-label="<?php echo htmlspecialchars(ft('follow_us')); ?>">
                         <a href="<?php echo htmlspecialchars($social_links['website']); ?>" class="footer-social-link" title="Website" target="_blank" rel="noopener noreferrer">
