@@ -2,7 +2,7 @@
 session_start();
 require_once __DIR__ . '/../helpers/db.php';
 require_once __DIR__ . '/../helpers/datetime_utc.php';
-require_once "../helpers/response.php";
+require_once __DIR__ . '/../helpers/response.php';
 require_once __DIR__ . '/../helpers/role.php';
 require_once __DIR__ . '/../includes/company_branding.php';
 require_once __DIR__ . '/../helpers/application_filters.php';
