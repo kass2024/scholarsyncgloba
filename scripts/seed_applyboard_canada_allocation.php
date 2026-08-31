@@ -341,7 +341,7 @@ $admins = [
     ],
     [
         'name' => 'Uwitonze Yvette',
-        'email' => 'parrotrwanda-yvette@scholarsyncglobal.ca',
+        'email' => 'scholarsyncglobal-rwanda-yvette@scholarsyncglobal.ca',
         'hints' => ['Uwitonze yvette', 'Uwitonze Yvette', 'uwiyvette'],
         'universities' => [
             'Algoma University',

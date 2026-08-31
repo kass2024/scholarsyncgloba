@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/includes/brand_logo.php';
-$parrotLogo = scholarsync_brand_logo_href(__DIR__);
+$brandLogo = scholarsync_brand_logo_href(__DIR__);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -204,7 +204,7 @@ select:focus {
 <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-bottom: 20px;">
   <!-- Logo -->
   <div style="flex: 1 1 200px;">
-    <img src="<?php echo htmlspecialchars($parrotLogo); ?>" alt="ScholarSync Global" style="max-width: 180px; height: auto;" width="180" height="180" decoding="async" />
+    <img src="<?php echo htmlspecialchars($brandLogo); ?>" alt="ScholarSync Global" style="max-width: 180px; height: auto;" width="180" height="180" decoding="async" />
   </div>
 
   <!-- Title -->

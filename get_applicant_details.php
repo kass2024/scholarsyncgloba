@@ -198,7 +198,7 @@ try {
                             <div>Scholarship: <span class="fw-bold">' . display($applicant['scholarship']) . '</span></div>
                             ' . (!empty($applicant['scholarship_institution']) ? 
                                 '<div class="small mt-1">Institution: ' . display($applicant['scholarship_institution']) . '</div>' : '') . '
-                            <div class="mt-2">Referred: <span class="fw-bold">' . display($applicant['referred_by_parrot']) . '</span></div>
+                            <div class="mt-2">Referred: <span class="fw-bold">' . display($applicant['referred_by_scholarsync']) . '</span></div>
                             ' . (!empty($applicant['ref_institution']) ? 
                                 '<div class="small mt-1">Referral: ' . display($applicant['ref_institution']) . '</div>' : '') . '
                         </div>

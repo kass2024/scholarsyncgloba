@@ -59,7 +59,7 @@ if ($contractsResult) {
 
 $headerPath = __DIR__ . '/header.png';
 $footerPath = __DIR__ . '/footer.png';
-$parrotSignaturePath = __DIR__ . '/employer-signature.png';
+$employerSignaturePath = __DIR__ . '/employer-signature.png';
 
 function clean($v) {
     return htmlspecialchars(trim($v ?? ''), ENT_QUOTES, 'UTF-8');
@@ -73,9 +73,9 @@ function img64($path) {
 
 $headerImg = img64($headerPath);
 $footerImg = img64($footerPath);
-$parrotSignature = img64($parrotSignaturePath);
+$employerSignature = img64($employerSignaturePath);
 
-function buildContractHtml($data, $headerImg, $footerImg, $parrotSignature, $studentSignature = '') {
+function buildContractHtml($data, $headerImg, $footerImg, $employerSignature, $studentSignature = '') {
 return '
 <!DOCTYPE html>
 <html>
@@ -370,7 +370,7 @@ This Contract constitutes the entire agreement between the Parties and supersede
 Name: Dr. Jean Pierre TWAJAMAHORO<br>
 Title: OWNER AND MANAGING DIRECTOR<br>
 Signature:<br>
-'.($parrotSignature ? '<img class="signature-img" src="'.$parrotSignature.'">' : '____________________________').'
+'.($employerSignature ? '<img class="signature-img" src="'.$employerSignature.'">' : '____________________________').'
 Date: '.$data['contract_date'].'
 </td>
 
@@ -414,7 +414,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die('Student signature is required.');
     }
 
-    $html = buildContractHtml($data, $headerImg, $footerImg, $parrotSignature, $studentSignature);
+    $html = buildContractHtml($data, $headerImg, $footerImg, $employerSignature, $studentSignature);
 
     $folder = __DIR__ . '/generated_contracts/';
     if (!is_dir($folder)) {
@@ -468,7 +468,7 @@ $previewData = [
     'governing_law' => 'Laws of Rwanda'
 ];
 
-$previewHtml = buildContractHtml($previewData, $headerImg, $footerImg, $parrotSignature, '');
+$previewHtml = buildContractHtml($previewData, $headerImg, $footerImg, $employerSignature, '');
 ?>
 
 <!DOCTYPE html>

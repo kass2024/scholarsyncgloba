@@ -39,7 +39,7 @@ CREATE TABLE `upafa_registrations` (
   `tuition_fees` DECIMAL(12,2) NOT NULL DEFAULT 0.00,
   `scholarship` ENUM('Yes','No') NOT NULL DEFAULT 'No',
   `scholarship_institution` VARCHAR(255) NULL,
-  `referred_by_parrot` ENUM('Yes','No') NOT NULL DEFAULT 'No',
+  `referred_by_scholarsync` ENUM('Yes','No') NOT NULL DEFAULT 'No',
   `ref_institution` VARCHAR(255) NULL,
   `telephone` VARCHAR(64) NOT NULL,
   `email` VARCHAR(190) NOT NULL,

@@ -709,7 +709,7 @@ abstract class ProfessionalPDFGenerator {
         $phone = $this->t('Phone', 'Téléphone');
         $fullAddress = $this->t('Full Address', 'Adresse complète');
         
-        $parrotInfo = $this->t(
+        $scholarsyncInfo = $this->t(
             'ScholarSync Global Co. Ltd<br>
             Dr Jean Pierre Twajamahoro<br>
             Owner & Managing Director<br>
@@ -733,7 +733,7 @@ abstract class ProfessionalPDFGenerator {
             294 Rue Vezina App 202; Lasalle, Quebec H8R 3M9'
         );
         
-        return "<h2>1. " . $this->t('PARTIES', 'PARTIES') . "</h2><p><strong>$between</strong></p><div class='party-info'><h4>$partnerName</h4><p><strong>$companyName:</strong> $partnerName</p><p><strong>$representative:</strong> $repName</p><p><strong>$position:</strong> $repTitle</p><p><strong>$email:</strong> $companyEmail</p><p><strong>$phone:</strong> $companyPhone</p><p><strong>$fullAddress:</strong> $companyAddress</p></div><p><strong>$and</strong></p><div class='party-info'><h4>ScholarSync Global Co. Ltd</h4><p>$parrotInfo</p></div>";
+        return "<h2>1. " . $this->t('PARTIES', 'PARTIES') . "</h2><p><strong>$between</strong></p><div class='party-info'><h4>$partnerName</h4><p><strong>$companyName:</strong> $partnerName</p><p><strong>$representative:</strong> $repName</p><p><strong>$position:</strong> $repTitle</p><p><strong>$email:</strong> $companyEmail</p><p><strong>$phone:</strong> $companyPhone</p><p><strong>$fullAddress:</strong> $companyAddress</p></div><p><strong>$and</strong></p><div class='party-info'><h4>ScholarSync Global Co. Ltd</h4><p>$scholarsyncInfo</p></div>";
     }
     
     protected function getSignatureSection(): string {
@@ -767,8 +767,8 @@ abstract class ProfessionalPDFGenerator {
         $phoneLabel = $this->t('Phone', 'Téléphone');
         $addressLabel = $this->t('Company Address', 'Adresse de l\'entreprise');
         
-        $parrotRepName = $this->t('Dr. Jean Pierre Twajamahoro', 'Dr Jean Pierre Twajamahoro');
-        $parrotRepTitle = $this->t('Owner & Managing Director', 'Propriétaire & Directeur Général');
+        $scholarsyncRepName = $this->t('Dr. Jean Pierre Twajamahoro', 'Dr Jean Pierre Twajamahoro');
+        $scholarsyncRepTitle = $this->t('Owner & Managing Director', 'Propriétaire & Directeur Général');
         
         return "
         <div class='signature-section'>
@@ -778,8 +778,8 @@ abstract class ProfessionalPDFGenerator {
                 <tr>
                     <td>
                         <p class='sig-party-title'>$leftTitle</p>
-                        <p class='sig-detail-line'><strong>$nameLabel:</strong> $parrotRepName</p>
-                        <p class='sig-detail-line'><strong>$titleLabel:</strong> $parrotRepTitle</p>
+                        <p class='sig-detail-line'><strong>$nameLabel:</strong> $scholarsyncRepName</p>
+                        <p class='sig-detail-line'><strong>$titleLabel:</strong> $scholarsyncRepTitle</p>
                         <p class='sig-detail-line'><strong>$signatureLabel:</strong></p>
                         $managerSignature
                         <p class='sig-detail-line'><strong>$stampLabel:</strong></p>

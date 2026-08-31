@@ -145,7 +145,7 @@ body {
                 <div class="row small mb-3">
                     <div class="col-md-4"><strong>Registration Fee:</strong> $<?= $r['registration_fees'] ?></div>
                     <div class="col-md-4"><strong>Scholarship:</strong> <?= $r['scholarship'] ?></div>
-                    <div class="col-md-4"><strong>Referred:</strong> <?= $r['referred_by_parrot'] ?></div>
+                    <div class="col-md-4"><strong>Referred:</strong> <?= $r['referred_by_scholarsync'] ?></div>
                 </div>
 
                 <!-- FILES -->

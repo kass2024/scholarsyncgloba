@@ -867,7 +867,7 @@ Contract Reference: <?= htmlspecialchars($contract['contract_token']) ?>
   const displayPhone = document.getElementById('sig_display_phone');
   const displayAddress = document.getElementById('sig_display_address');
   const displayDate = document.getElementById('sig_display_date');
-  const parrotDate = document.getElementById('scholarsync_date');
+  const scholarsyncDate = document.getElementById('scholarsync_date');
 
   let drawing = false;
   let lastX = 0;
@@ -1146,7 +1146,7 @@ Contract Reference: <?= htmlspecialchars($contract['contract_token']) ?>
     if (inputDate) inputDate.value = today;
     if (inputContractDate) inputContractDate.value = today;
     if (displayDate) displayDate.textContent = today.replace(/-/g, '/');
-    if (parrotDate) parrotDate.textContent = today.replace(/-/g, '/');
+    if (scholarsyncDate) scholarsyncDate.textContent = today.replace(/-/g, '/');
   }
 
   [inputCompany, inputName, inputTitle, inputEmail, inputPhone, inputAddress].forEach((el) => {

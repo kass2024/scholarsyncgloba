@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once __DIR__ . '/includes/brand_logo.php';
-$parrotBrandLogoHref = scholarsync_brand_logo_href(__DIR__);
+$brandLogoHref = scholarsync_brand_logo_href(__DIR__);
 
 // Resolve application user_id: explicit ?id= resumes that application; otherwise start a new draft id.
 if (isset($_GET['id']) && trim((string)$_GET['id']) !== '') {
@@ -1448,7 +1448,7 @@ if (!is_array($certChecked)) {
 
 <div class="header">
   <div class="logo-container">
-    <img class="brand-logo-img" src="<?php echo htmlspecialchars($parrotBrandLogoHref); ?>" alt="ScholarSync Global" width="180" height="56" decoding="async" />
+    <img class="brand-logo-img" src="<?php echo htmlspecialchars($brandLogoHref); ?>" alt="ScholarSync Global" width="180" height="56" decoding="async" />
     <div>
       <div class="logo-text">ScholarSync Global</div>
       <div class="logo-subtext"><?php echo ct('form_title'); ?></div>

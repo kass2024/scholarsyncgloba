@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/brand_logo.php';
 require_once __DIR__ . '/helpers/credit_transfer_programs.php';
-$parrotLogo = scholarsync_brand_logo_href(__DIR__);
+$brandLogo = scholarsync_brand_logo_href(__DIR__);
 $upafaPrograms = pcvc_credit_transfer_programs_flat()['UPAFA'] ?? [];
 $upafaCatalogueRel = pcvc_credit_transfer_catalogue_path('UPAFA');
 ?>
@@ -106,7 +106,7 @@ $upafaCatalogueRel = pcvc_credit_transfer_catalogue_path('UPAFA');
           <div>Supérieur et de la Recherche Scientifique</div>
         </div>
         <div class="col-12 col-md-2 logo-wrap">
-          <img class="logo" src="<?php echo htmlspecialchars($parrotLogo); ?>" alt="ScholarSync Global" decoding="async" />
+          <img class="logo" src="<?php echo htmlspecialchars($brandLogo); ?>" alt="ScholarSync Global" decoding="async" />
         </div>
         <div class="col-12 col-md-5 arabic-right">
           <div>مالي الجمهورية</div>
@@ -277,11 +277,11 @@ $upafaCatalogueRel = pcvc_credit_transfer_catalogue_path('UPAFA');
               <label class="me-2">Referred by Partner ScholarSync Global Co. Ltd?</label>
               <div class="inline-yn">
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="referred_by_parrot" id="ref_yes" value="Yes">
+                  <input class="form-check-input" type="radio" name="referred_by_scholarsync" id="ref_yes" value="Yes">
                   <label class="form-check-label" for="ref_yes">Yes</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="referred_by_parrot" id="ref_no" value="No" checked>
+                  <input class="form-check-input" type="radio" name="referred_by_scholarsync" id="ref_no" value="No" checked>
                   <label class="form-check-label" for="ref_no">No</label>
                 </div>
                 <input type="text" class="form-control d-none" id="ref_institution" name="ref_institution" placeholder="If Yes: From which Institution ?">
@@ -420,7 +420,7 @@ $upafaCatalogueRel = pcvc_credit_transfer_catalogue_path('UPAFA');
       update();
     };
     toggleByRadio('scholarship', 'scholarship_institution');
-    toggleByRadio('referred_by_parrot', 'ref_institution');
+    toggleByRadio('referred_by_scholarsync', 'ref_institution');
 
     // file “pill” helper (single)
     const pillSingle = (input, mount) => {

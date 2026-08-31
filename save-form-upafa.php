@@ -464,7 +464,7 @@ try {
     $conn->begin_transaction();
 
     $scholarship = yn(post('scholarship','No'));
-    $referred    = yn(post('referred_by_parrot','No'));
+    $referred    = yn(post('referred_by_scholarsync','No'));
     $sch_inst = ($scholarship === 'Yes' && post('scholarship_institution')!=='') ? post('scholarship_institution') : null;
     $ref_inst = ($referred   === 'Yes' && post('ref_institution')!=='')          ? post('ref_institution')       : null;
 
@@ -478,7 +478,7 @@ try {
         academic_year,last_name,first_name,nationality,birth_place,birth_date,
         highest_education,department,school_name_address,year_from,year_to,
         intended_degree,field_of_study,registration_fees,tuition_fees,
-        scholarship,scholarship_institution,referred_by_parrot,ref_institution,
+        scholarship,scholarship_institution,referred_by_scholarsync,ref_institution,
         telephone,email,commitment_name,done_at,done_date
     ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
@@ -605,7 +605,7 @@ try {
          <p><strong>Intended Degree:</strong> ".htmlspecialchars($reg['intended_degree'])." — ".htmlspecialchars($reg['field_of_study'])."</p>
          <p><strong>Fees:</strong> Registration ".htmlspecialchars((string)$reg['registration_fees'])." | Tuition ".htmlspecialchars((string)$reg['tuition_fees'])."</p>
          <p><strong>Scholarship:</strong> ".htmlspecialchars($reg['scholarship']).($reg['scholarship_institution'] ? " (".htmlspecialchars($reg['scholarship_institution']).")" : "")."</p>
-         <p><strong>Referred by ScholarSync:</strong> ".htmlspecialchars($reg['referred_by_parrot']).($reg['ref_institution'] ? " (".htmlspecialchars($reg['ref_institution']).")" : "")."</p>"
+         <p><strong>Referred by ScholarSync:</strong> ".htmlspecialchars($reg['referred_by_scholarsync']).($reg['ref_institution'] ? " (".htmlspecialchars($reg['ref_institution']).")" : "")."</p>"
          . ($att['note'] ? "<pre style='background:#f8f9fa;padding:10px;border:1px solid #e5e7eb;border-radius:6px'>".htmlspecialchars($att['note'])."</pre>" : "")
          . "<h4>Files</h4>{$filesListHtml}";
 

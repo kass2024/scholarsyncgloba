@@ -157,7 +157,7 @@ function generateUpafaPDF(int $registrationId, mysqli $conn): ?string
     <table class='grid'>
       <tr><th style='width:28%'>Field</th><th>Value</th></tr>
       <tr><td>Scholarship</td><td>".$h($reg['scholarship']).(!empty($reg['scholarship_institution']) ? " — ".$h($reg['scholarship_institution']) : "")."</td></tr>
-      <tr><td>Referred by ScholarSync Global</td><td>".$h($reg['referred_by_parrot']).(!empty($reg['ref_institution']) ? " — ".$h($reg['ref_institution']) : "")."</td></tr>
+      <tr><td>Referred by ScholarSync Global</td><td>".$h($reg['referred_by_scholarsync']).(!empty($reg['ref_institution']) ? " — ".$h($reg['ref_institution']) : "")."</td></tr>
     </table>
   </div>
 

@@ -136,7 +136,7 @@ try {
             academic_year, last_name, first_name, nationality, birth_place, birth_date,
             highest_education, department, school_name_address, year_from, year_to,
             intended_degree, field_of_study, registration_fees, tuition_fees,
-            scholarship, scholarship_institution, referred_by_parrot, ref_institution,
+            scholarship, scholarship_institution, referred_by_scholarsync, ref_institution,
             telephone, email, commitment_name, done_at, done_date
         ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)'
     );
