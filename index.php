@@ -2447,6 +2447,23 @@ body:has(.landing-root) {
   box-shadow: inset 0 0 0 1px rgba(20, 166, 162, 0.1);
 }
 
+.landing-root .services-grid {
+  width: 100%;
+  max-width: 1440px;
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.landing-root .service-card {
+  padding: 2.15rem 1.75rem 1.7rem;
+}
+
+@media (max-width: 1020px) {
+  .landing-root .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 680px) {
   .landing-root .hero-landing {
     padding-top: 2.3rem;
@@ -2474,6 +2491,10 @@ body:has(.landing-root) {
     min-height: 39px;
     padding-right: 0.7rem;
     font-size: 0.78rem;
+  }
+
+  .landing-root .services-grid {
+    grid-template-columns: 1fr;
   }
 }
 </style>
