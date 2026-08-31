@@ -28,12 +28,12 @@ $contact_translations = [
         
         // Office Details (primary)
         'sanfrancisco_title' => 'Rwanda — Kigali',
-        'sanfrancisco_address' => 'Town Center Building (near Simba Supermarket), 2nd Floor, Door: F2B-022C, Nyarugenge',
+        'sanfrancisco_address' => 'Kigali, Rwanda',
         'sanfrancisco_phone' => '+14313059527',
         'sanfrancisco_hours' => 'Email: infos@scholarsyncglobal.ca · We reply within 24 hours',
         
         'muhanga_title' => 'Regional inquiries',
-        'muhanga_address' => 'Town Center Building (near Simba Supermarket), 2nd Floor, Door: F2B-022C, Nyarugenge',
+        'muhanga_address' => 'Kigali, Rwanda',
         'muhanga_phone' => '+14313059527',
         'muhanga_hours' => 'infos@scholarsyncglobal.ca',
         
@@ -117,12 +117,12 @@ $contact_translations = [
         
         // Office Details
         'sanfrancisco_title' => 'Rwanda — Kigali',
-        'sanfrancisco_address' => 'Town Center Building (près de Simba Supermarket), 2e étage, Porte : F2B-022C, Nyarugenge',
+        'sanfrancisco_address' => 'Kigali, Rwanda',
         'sanfrancisco_phone' => '+14313059527',
         'sanfrancisco_hours' => 'Courriel : infos@scholarsyncglobal.ca · Réponse sous 24 h',
         
         'muhanga_title' => 'Demandes régionales',
-        'muhanga_address' => 'Town Center Building (près de Simba Supermarket), 2e étage, Porte : F2B-022C, Nyarugenge',
+        'muhanga_address' => 'Kigali, Rwanda',
         'muhanga_phone' => '+14313059527',
         'muhanga_hours' => 'infos@scholarsyncglobal.ca',
         
